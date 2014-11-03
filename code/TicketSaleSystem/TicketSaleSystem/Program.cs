@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
+using TicketSaleSystem.XTCZ;
 
 namespace TicketSaleSystem
 {
@@ -19,7 +20,7 @@ namespace TicketSaleSystem
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
 
-            Application.Run(new MainForm());
+            Application.Run(new Frm_MainForm());
         }
     }
 }
