@@ -13,6 +13,8 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
 using TicketSaleSystem.XTCZ;
+using DevExpress.XtraTab;
+using DevExpress.XtraEditors;
 
 
 namespace TicketSaleSystem
@@ -23,7 +25,6 @@ namespace TicketSaleSystem
         {
             InitializeComponent();
             InitSkinGallery();
-            schedulerControl.Start = System.DateTime.Now;
         }
         void InitSkinGallery()
         {
@@ -44,6 +45,12 @@ namespace TicketSaleSystem
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             // 退出
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
+            ToolsHelper.AddUserControl(xtraTabControl1, frm, "M0001", "财务出库");
         }
 
     }

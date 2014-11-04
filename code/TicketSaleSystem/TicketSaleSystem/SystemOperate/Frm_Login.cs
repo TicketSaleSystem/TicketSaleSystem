@@ -17,5 +17,16 @@ namespace TicketSaleSystem.XTCZ
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // 关闭
+            this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            // 登录
+        }
     }
 }

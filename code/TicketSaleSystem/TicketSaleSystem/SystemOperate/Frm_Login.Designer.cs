@@ -76,6 +76,7 @@
             this.btnLogin.Size = new System.Drawing.Size(84, 43);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "登  录";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnCancel
             // 
@@ -84,18 +85,22 @@
             this.btnCancel.Size = new System.Drawing.Size(84, 43);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "取  消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 239);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPWD);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户登录";
