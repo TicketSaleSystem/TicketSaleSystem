@@ -53,5 +53,20 @@ namespace TicketSaleSystem
             ToolsHelper.AddUserControl(xtraTabControl1, frm, "M0001", "财务出库");
         }
 
+        private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
+        {
+            DevExpress.XtraTab.ViewInfo.ClosePageButtonEventArgs EArg = (DevExpress.XtraTab.ViewInfo.ClosePageButtonEventArgs)e;
+            string name = EArg.Page.Text; // 得到关闭的选项卡的text
+            foreach (XtraTabPage page in xtraTabControl1.TabPages) // 遍历得到和关闭的选项卡一样的Text
+            {
+                if (page.Text == name)
+                {
+                    xtraTabControl1.TabPages.Remove(page);
+                    page.Dispose();
+                    return;
+                }
+            }
+        }
+
     }
 }
