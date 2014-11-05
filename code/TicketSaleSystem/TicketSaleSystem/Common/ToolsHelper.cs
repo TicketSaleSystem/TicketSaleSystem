@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TicketSaleSystem.XTCZ;
+using TicketSaleSystem.SystemOperate;
 
 namespace TicketSaleSystem
 {

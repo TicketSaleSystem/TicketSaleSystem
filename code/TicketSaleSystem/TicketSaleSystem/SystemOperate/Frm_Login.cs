@@ -8,8 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Data.SqlClient;
 
-namespace TicketSaleSystem.XTCZ
+namespace TicketSaleSystem.SystemOperate
 {
     public partial class Frm_Login : DevExpress.XtraEditors.XtraForm
     {
@@ -27,6 +28,19 @@ namespace TicketSaleSystem.XTCZ
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // 登录
+            string sqlStr = "select * from TSS_USER where USER_ID=@USER_ID and PASSWORD=@PASSWORD";
+            SqlParameter[] sqlParams = new SqlParameter[]  
+            {
+                new SqlParameter("@USER_ID", SqlDbType.NVarChar),
+                new SqlParameter("@PASSWORD", SqlDbType.NVarChar)
+            };
+            sqlParams[0].Value = txtUserID.Text;
+            sqlParams[1].Value = txtPWD.Text;
+            DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr, sqlParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                MessageBox.Show("您好！" + ds.Tables[0].Rows[0]["USER_NAME"].ToString());
+            else
+                MessageBox.Show("账号或密码错误！");
         }
     }
 }

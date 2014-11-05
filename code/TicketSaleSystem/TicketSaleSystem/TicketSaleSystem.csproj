@@ -149,6 +149,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\SqlHelper.cs" />
     <Compile Include="SystemOperate\Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,7 +162,7 @@
     <Compile Include="TicketOperate\Frm_TicketOperate.Designer.cs">
       <DependentUpon>Frm_TicketOperate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolsHelper.cs" />
+    <Compile Include="Common\ToolsHelper.cs" />
     <EmbeddedResource Include="Frm_MainForm.resx">
       <DependentUpon>Frm_MainForm.cs</DependentUpon>
     </EmbeddedResource>

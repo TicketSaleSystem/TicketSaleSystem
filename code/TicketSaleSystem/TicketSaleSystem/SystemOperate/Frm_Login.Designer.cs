@@ -1,4 +1,4 @@
-﻿namespace TicketSaleSystem.XTCZ
+﻿namespace TicketSaleSystem.SystemOperate
 {
     partial class Frm_Login
     {

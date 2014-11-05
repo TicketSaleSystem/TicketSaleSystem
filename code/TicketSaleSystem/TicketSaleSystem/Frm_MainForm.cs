@@ -12,7 +12,7 @@ using DevExpress.UserSkins;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
-using TicketSaleSystem.XTCZ;
+using TicketSaleSystem.SystemOperate;
 using DevExpress.XtraTab;
 using DevExpress.XtraEditors;
 

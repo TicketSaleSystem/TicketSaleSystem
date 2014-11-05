@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
-using TicketSaleSystem.XTCZ;
+using TicketSaleSystem.SystemOperate;
 
 namespace TicketSaleSystem
 {
