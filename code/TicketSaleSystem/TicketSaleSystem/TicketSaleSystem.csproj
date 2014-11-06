@@ -141,6 +141,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FileHandler.cs" />
+    <Compile Include="Common\LogFile.cs" />
     <Compile Include="Frm_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

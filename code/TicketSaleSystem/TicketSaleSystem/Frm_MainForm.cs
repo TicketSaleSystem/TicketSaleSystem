@@ -15,6 +15,7 @@ using DevExpress.XtraBars.Helpers;
 using TicketSaleSystem.SystemOperate;
 using DevExpress.XtraTab;
 using DevExpress.XtraEditors;
+using TicketSaleSystem.Common;
 
 
 namespace TicketSaleSystem
@@ -45,6 +46,14 @@ namespace TicketSaleSystem
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             // 退出
+            try
+            {
+                LogFile.WriteLine("Log日志测试");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Log写入失败：" + ex.Message);
+            }
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
