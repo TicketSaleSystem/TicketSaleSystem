@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Columns;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,24 @@ namespace TicketSaleSystem
 {
     static class ToolsHelper
     {
+        private static string TreeData = "{'rid':0,'name':'系统操作','childs':[{'rid':'M0100','name':'模块1','childs':[{'rid':'M0101','name':'模块1-1'},{'rid':'M0102','name':'模块1-2'}]},{'rid':'M0200','name':'模块2','childs':[{'rid':'M0201','name':'模块2-1'}]}]}";
+        //        private string TreeData = string.Format(@"
+        //                            { 
+        //                                'rid' : 0, 'name' : '系统操作', 'childs' : [{
+        //                                    'rid' : 'M0100', 'name' : '模块1', 'childs' : [{
+        //                                        'rid' : 'M0101', 'name' : '模块1-1'
+        //                                    },{
+        //                                        'rid' : 'M0102', 'name' : '模块1-2'
+        //                                    }]
+        //                                },{
+        //                                    'rid' : 'M0200', 'name' : '模块2', 'childs' : [{
+        //                                        'rid' : 'M0201', 'name' : '模块2-1'
+        //                                    }]
+        //                                }]
+        //                            }
+        //        ");
+
+        #region XtraTabPage控件
         /// <summary>
         /// 添加到Tab控件里
         /// </summary>
@@ -47,5 +67,51 @@ namespace TicketSaleSystem
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
+
+        #region XtraTreeList控件
+        /// <summary>
+        /// 动态创建TreeList Layer Node节点
+        /// </summary>
+        /// <param name="layerName"></param>
+        /// <param name="check"></param>
+        public static void creatMainLayerNode(TreeList treeListLayerControl, string layerName)
+        {
+            treeListLayerControl.BeginUnboundLoad();
+            treeListLayerControl.AppendNode(new object[] { layerName }, -1);
+            treeListLayerControl.EndUnboundLoad();
+        }
+
+        /// <summary>
+        /// 动态创建TreeList 字段属性值 Node节点
+        /// </summary>
+        /// <param name="ValueName"></param>
+        /// <param name="ID"></param>
+        public static void CreatChildNode(TreeList treeListLayerControl, string ValueName,  int ID)
+        {
+            treeListLayerControl.BeginUnboundLoad();
+            treeListLayerControl.AppendNode(new object[] { ValueName }, ID);
+            treeListLayerControl.EndUnboundLoad();
+        }
+
+        /// <summary>
+        /// 获得图层名节点的Index值
+        /// </summary>
+        /// <param name="ParentNodeName"></param>
+        /// <returns></returns>
+        public static int getParentID(TreeList treeListLayerControl, string ParentNodeName)
+        {
+            int i = -1;
+            for (i = 0; i < treeListLayerControl.Nodes.Count; i++)
+            {
+                if (treeListLayerControl.Nodes[i][0].ToString() == ParentNodeName)
+                {
+                    break;
+                }
+            }
+            return i;
+        }
+        #endregion
+
     }
 }

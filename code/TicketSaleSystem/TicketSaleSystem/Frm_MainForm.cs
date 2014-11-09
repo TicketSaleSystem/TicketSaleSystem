@@ -59,7 +59,7 @@ namespace TicketSaleSystem
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
-            ToolsHelper.AddUserControl(xtraTabControl1, frm, "M0001", "财务出库");
+            ToolsHelper.AddUserControl(xtraTabControl1, frm, "财务出库", "财务出库");
         }
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)

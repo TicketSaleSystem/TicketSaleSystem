@@ -117,10 +117,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DevExpress.XtraEditors.v14.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DevExpress.XtraNavBar.v14.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DevExpress.XtraScheduler.v14.1.dll</HintPath>
@@ -133,6 +135,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DevExpress.XtraScheduler.v14.1.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -143,6 +150,12 @@
   <ItemGroup>
     <Compile Include="Common\FileHandler.cs" />
     <Compile Include="Common\LogFile.cs" />
+    <Compile Include="Frm_IndexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_IndexForm.Designer.cs">
+      <DependentUpon>Frm_IndexForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +178,9 @@
       <DependentUpon>Frm_TicketOperate.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ToolsHelper.cs" />
+    <EmbeddedResource Include="Frm_IndexForm.resx">
+      <DependentUpon>Frm_IndexForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_MainForm.resx">
       <DependentUpon>Frm_MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +202,7 @@
       <DependentUpon>Frm_TicketOperate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
