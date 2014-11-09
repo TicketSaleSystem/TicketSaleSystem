@@ -311,10 +311,13 @@
     <Content Include="dll\DevExpress.Utils.v14.1.dll" />
     <Content Include="dll\DevExpress.XtraBars.v14.1.dll" />
     <Content Include="dll\DevExpress.XtraEditors.v14.1.dll" />
+    <Content Include="dll\DevExpress.XtraLayout.v14.1.dll" />
     <Content Include="dll\DevExpress.XtraNavBar.v14.1.dll" />
+    <Content Include="dll\DevExpress.XtraPrinting.v14.1.dll" />
     <Content Include="dll\DevExpress.XtraScheduler.v14.1.Core.dll" />
     <Content Include="dll\DevExpress.XtraScheduler.v14.1.dll" />
     <Content Include="dll\DevExpress.XtraScheduler.v14.1.Extensions.dll" />
+    <Content Include="dll\DevExpress.XtraTreeList.v14.1.dll" />
     <None Include="Resources\首页.png" />
   </ItemGroup>
   <ItemGroup>

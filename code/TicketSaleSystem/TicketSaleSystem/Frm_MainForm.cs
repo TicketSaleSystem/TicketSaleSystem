@@ -16,16 +16,20 @@ using TicketSaleSystem.SystemOperate;
 using DevExpress.XtraTab;
 using DevExpress.XtraEditors;
 using TicketSaleSystem.Common;
+using DevExpress.XtraTreeList.Nodes;
 
 
 namespace TicketSaleSystem
 {
     public partial class Frm_MainForm : RibbonForm
     {
+        private string FieldName = "COLNAME"; // 用于TreeList显示文字的列，设计界面右键单击RunDesign
+
         public Frm_MainForm()
         {
             InitializeComponent();
             InitSkinGallery();
+            BindTreeListData();
         }
         void InitSkinGallery()
         {
@@ -77,5 +81,93 @@ namespace TicketSaleSystem
             }
         }
 
+        private void treeList1_Click(object sender, EventArgs e)
+        {
+            TreeListNode clickedNode = this.treeList1.FocusedNode;
+            if (clickedNode != null && !clickedNode.HasChildren)
+            {
+                string disPlayText = clickedNode.GetDisplayText(FieldName); // 显示的汉字，目前无法取到绑定时的数字
+                TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
+                ToolsHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
+            }
+        }
+
+        private void BindTreeListData()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                // 获取树结构数据
+                string sqlStr = string.Format(@"
+                                                    SELECT
+                	                                     CONVERT(INT,SUBSTRING(t.DICT_ID,2,4)) AS ID
+                                                        ,t.DICT_NAME AS COLNAME
+                                                        ,CONVERT(INT,SUBSTRING(t.DICT_PID,2,4)) AS PID
+                                                    FROM
+                	                                    TSS_DICTIONARY T
+                                                    WHERE
+                	                                    T.DICT_TYPE = 'Modules'
+                                                    ORDER BY ID");
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dtMenu = ds.Tables[0];
+                    treeList1.Nodes.Clear();
+                    treeList1.DataSource = dtMenu;
+                    treeList1.ParentFieldName = "PID";
+                    treeList1.KeyFieldName = "ID";
+                }
+                treeList1.ExpandAll();
+            }
+            catch (Exception ex)
+            {
+                // Error
+                LogFile.WriteLine("BindTreeListData Error: " + ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void barButtonItem35_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // 门票操作 刷新树
+            RefreshTreeList("门票操作");
+        }
+
+        private void barButtonItem36_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // 高级查询 刷新树
+            RefreshTreeList("高级查询");
+        }
+
+        private void barButtonItem37_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // 管理 刷新树
+            RefreshTreeList("管理");
+        }
+
+        private void barButtonItem38_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // 关于 弹窗
+        }
+
+        // 点击菜单大类是刷新对应树结构
+        private void RefreshTreeList(string nodeName)
+        {
+            if (nodeName == null)
+                return;
+            TreeListNodes allNode = this.treeList1.Nodes;
+            if (allNode != null)
+            {
+                this.treeList1.CollapseAll();
+                for (int i = 0; i < allNode.Count; i++)
+                {
+                    TreeListNode tempTreeListNode = allNode[i];
+                    if (tempTreeListNode.GetDisplayText(FieldName).Equals(nodeName)) 
+                    {
+                        tempTreeListNode.Expanded = true;
+                    }
+                }
+            }
+        }
     }
 }

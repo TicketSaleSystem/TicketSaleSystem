@@ -20,7 +20,7 @@ namespace TicketSaleSystem
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
 
-            Application.Run(new Frm_IndexForm());
+            Application.Run(new Frm_MainForm());
         }
     }
 }

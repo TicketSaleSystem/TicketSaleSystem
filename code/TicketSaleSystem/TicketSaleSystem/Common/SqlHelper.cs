@@ -15,7 +15,7 @@ namespace TicketSaleSystem
         #region 私有构造函数和方法
 
         // 数据库连接字符串
-        public static readonly string ConStr = @"Data Source=SOLAN-PC;Initial Catalog=TicketSaleSystem;User ID=sa;Password=sa123;Integrated Security=True";
+        public static readonly string ConStr = @"Data Source=192.168.2.105;Initial Catalog=TicketSaleSystem;User ID=sa;Password=sa123;Integrated Security=False";
 
         private SqlHelper() { }
 
