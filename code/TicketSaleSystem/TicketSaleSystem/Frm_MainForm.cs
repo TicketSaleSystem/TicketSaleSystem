@@ -169,5 +169,10 @@ namespace TicketSaleSystem
                 }
             }
         }
+
+        private void treeList1_CustomDrawNodeImages(object sender, DevExpress.XtraTreeList.CustomDrawNodeImagesEventArgs e)
+        {
+            e.SelectImageIndex = e.Node.Level + 1; // e.SelectImageIndex为图片在ImageList中的index
+        }
     }
 }

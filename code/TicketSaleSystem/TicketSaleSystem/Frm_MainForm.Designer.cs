@@ -160,6 +160,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.ribbonGalleryBarItem2 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
@@ -177,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             this.SuspendLayout();
             // 
             // navbarImageCollectionLarge
@@ -1316,6 +1318,7 @@
             // 
             this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.treeCol});
+            this.treeList1.ColumnsImageList = this.imageCollection1;
             this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeList1.Location = new System.Drawing.Point(2, 2);
             this.treeList1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1329,8 +1332,11 @@
             this.treeList1.OptionsView.ShowColumns = false;
             this.treeList1.OptionsView.ShowIndicator = false;
             this.treeList1.ParentFieldName = "PID";
+            this.treeList1.SelectImageList = this.imageCollection1;
             this.treeList1.Size = new System.Drawing.Size(224, 531);
+            this.treeList1.StateImageList = this.imageCollection1;
             this.treeList1.TabIndex = 9;
+            this.treeList1.CustomDrawNodeImages += new DevExpress.XtraTreeList.CustomDrawNodeImagesEventHandler(this.treeList1_CustomDrawNodeImages);
             this.treeList1.Click += new System.EventHandler(this.treeList1_Click);
             // 
             // treeCol
@@ -1396,6 +1402,70 @@
             this.ribbonGalleryBarItem2.Id = 60;
             this.ribbonGalleryBarItem2.Name = "ribbonGalleryBarItem2";
             // 
+            // imageCollection1
+            // 
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.InsertGalleryImage("bringforward_16x16.png", "images/arrange/bringforward_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrange/bringforward_16x16.png"), 0);
+            this.imageCollection1.Images.SetKeyName(0, "bringforward_16x16.png");
+            this.imageCollection1.InsertGalleryImage("zoom_16x16.png", "images/zoom/zoom_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/zoom/zoom_16x16.png"), 1);
+            this.imageCollection1.Images.SetKeyName(1, "zoom_16x16.png");
+            this.imageCollection1.InsertGalleryImage("properties_16x16.png", "images/setup/properties_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/setup/properties_16x16.png"), 2);
+            this.imageCollection1.Images.SetKeyName(2, "properties_16x16.png");
+            this.imageCollection1.InsertGalleryImage("addfooter_16x16.png", "images/reports/addfooter_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/addfooter_16x16.png"), 3);
+            this.imageCollection1.Images.SetKeyName(3, "addfooter_16x16.png");
+            this.imageCollection1.InsertGalleryImage("addheader_16x16.png", "images/reports/addheader_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/addheader_16x16.png"), 4);
+            this.imageCollection1.Images.SetKeyName(4, "addheader_16x16.png");
+            this.imageCollection1.InsertGalleryImage("showworktimeonly_16x16.png", "images/scheduling/showworktimeonly_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/showworktimeonly_16x16.png"), 5);
+            this.imageCollection1.Images.SetKeyName(5, "showworktimeonly_16x16.png");
+            this.imageCollection1.InsertGalleryImage("previous_16x16.png", "images/navigation/previous_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/navigation/previous_16x16.png"), 6);
+            this.imageCollection1.Images.SetKeyName(6, "previous_16x16.png");
+            this.imageCollection1.InsertGalleryImage("next_16x16.png", "grayscaleimages/navigation/next_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/navigation/next_16x16.png"), 7);
+            this.imageCollection1.Images.SetKeyName(7, "next_16x16.png");
+            this.imageCollection1.InsertGalleryImage("redo_16x16.png", "grayscaleimages/history/redo_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/history/redo_16x16.png"), 8);
+            this.imageCollection1.Images.SetKeyName(8, "redo_16x16.png");
+            this.imageCollection1.InsertGalleryImage("splitappointment_16x16.png", "grayscaleimages/scheduling/splitappointment_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/scheduling/splitappointment_16x16.png"), 9);
+            this.imageCollection1.Images.SetKeyName(9, "splitappointment_16x16.png");
+            this.imageCollection1.InsertGalleryImage("separator_16x16.png", "images/reports/separator_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/separator_16x16.png"), 10);
+            this.imageCollection1.Images.SetKeyName(10, "separator_16x16.png");
+            this.imageCollection1.InsertGalleryImage("grid_16x16.png", "images/grid/grid_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/grid/grid_16x16.png"), 11);
+            this.imageCollection1.Images.SetKeyName(11, "grid_16x16.png");
+            this.imageCollection1.InsertGalleryImage("employee_16x16.png", "images/people/employee_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/employee_16x16.png"), 12);
+            this.imageCollection1.Images.SetKeyName(12, "employee_16x16.png");
+            this.imageCollection1.InsertGalleryImage("team_16x16.png", "images/people/team_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/team_16x16.png"), 13);
+            this.imageCollection1.Images.SetKeyName(13, "team_16x16.png");
+            this.imageCollection1.InsertGalleryImage("bringtofront_16x16.png", "images/arrange/bringtofront_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrange/bringtofront_16x16.png"), 14);
+            this.imageCollection1.Images.SetKeyName(14, "bringtofront_16x16.png");
+            this.imageCollection1.InsertGalleryImage("country_16x16.png", "images/miscellaneous/country_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/miscellaneous/country_16x16.png"), 15);
+            this.imageCollection1.Images.SetKeyName(15, "country_16x16.png");
+            this.imageCollection1.InsertGalleryImage("new_16x16.png", "images/actions/new_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/new_16x16.png"), 16);
+            this.imageCollection1.Images.SetKeyName(16, "new_16x16.png");
+            this.imageCollection1.InsertGalleryImage("currency_16x16.png", "images/miscellaneous/currency_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/miscellaneous/currency_16x16.png"), 17);
+            this.imageCollection1.Images.SetKeyName(17, "currency_16x16.png");
+            this.imageCollection1.InsertGalleryImage("previewchart_16x16.png", "images/chart/previewchart_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/chart/previewchart_16x16.png"), 18);
+            this.imageCollection1.Images.SetKeyName(18, "previewchart_16x16.png");
+            this.imageCollection1.InsertGalleryImage("kpi_16x16.png", "images/chart/kpi_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/chart/kpi_16x16.png"), 19);
+            this.imageCollection1.Images.SetKeyName(19, "kpi_16x16.png");
+            this.imageCollection1.InsertGalleryImage("selectall_16x16.png", "images/actions/selectall_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/selectall_16x16.png"), 20);
+            this.imageCollection1.Images.SetKeyName(20, "selectall_16x16.png");
+            this.imageCollection1.InsertGalleryImage("alignjustify_16x16.png", "images/format/alignjustify_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/format/alignjustify_16x16.png"), 21);
+            this.imageCollection1.Images.SetKeyName(21, "alignjustify_16x16.png");
+            this.imageCollection1.InsertGalleryImage("replace_16x16.png", "images/format/replace_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/format/replace_16x16.png"), 22);
+            this.imageCollection1.Images.SetKeyName(22, "replace_16x16.png");
+            this.imageCollection1.InsertGalleryImage("converttoparagraphs_16x16.png", "images/reports/converttoparagraphs_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/converttoparagraphs_16x16.png"), 23);
+            this.imageCollection1.Images.SetKeyName(23, "converttoparagraphs_16x16.png");
+            this.imageCollection1.InsertGalleryImage("show_16x16.png", "images/actions/show_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/show_16x16.png"), 24);
+            this.imageCollection1.Images.SetKeyName(24, "show_16x16.png");
+            this.imageCollection1.InsertGalleryImage("assigntome_16x16.png", "images/people/assigntome_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/assigntome_16x16.png"), 25);
+            this.imageCollection1.Images.SetKeyName(25, "assigntome_16x16.png");
+            this.imageCollection1.InsertGalleryImage("notes_16x16.png", "images/content/notes_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/content/notes_16x16.png"), 26);
+            this.imageCollection1.Images.SetKeyName(26, "notes_16x16.png");
+            this.imageCollection1.InsertGalleryImage("publicfix_16x16.png", "images/people/publicfix_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/publicfix_16x16.png"), 27);
+            this.imageCollection1.Images.SetKeyName(27, "publicfix_16x16.png");
+            this.imageCollection1.InsertGalleryImage("usergroup_16x16.png", "images/people/usergroup_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/usergroup_16x16.png"), 28);
+            this.imageCollection1.Images.SetKeyName(28, "usergroup_16x16.png");
+            this.imageCollection1.InsertGalleryImage("time_16x16.png", "images/scheduling/time_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/time_16x16.png"), 29);
+            this.imageCollection1.Images.SetKeyName(29, "time_16x16.png");
+            // 
             // Frm_MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1432,6 +1502,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1569,6 +1640,7 @@
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
+        private DevExpress.Utils.ImageCollection imageCollection1;
 
     }
 }
