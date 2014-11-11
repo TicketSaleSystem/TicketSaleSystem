@@ -34,12 +34,7 @@
             this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.iExit = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
-            this.iHelp = new DevExpress.XtraBars.BarButtonItem();
-            this.iAbout = new DevExpress.XtraBars.BarButtonItem();
-            this.siInfo = new DevExpress.XtraBars.BarStaticItem();
-            this.editAppointmentQueryItem1 = new DevExpress.XtraScheduler.UI.EditAppointmentQueryItem();
             this.editOccurrenceUICommandItem1 = new DevExpress.XtraScheduler.UI.EditOccurrenceUICommandItem();
             this.editSeriesUICommandItem1 = new DevExpress.XtraScheduler.UI.EditSeriesUICommandItem();
             this.deleteAppointmentsItem1 = new DevExpress.XtraScheduler.UI.DeleteAppointmentsItem();
@@ -129,25 +124,6 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.homeRibbonPage1 = new DevExpress.XtraScheduler.UI.HomeRibbonPage();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.viewRibbonPage1 = new DevExpress.XtraScheduler.UI.ViewRibbonPage();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController();
@@ -157,10 +133,11 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeCol = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.ribbonGalleryBarItem2 = new DevExpress.XtraBars.RibbonGalleryBarItem();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
@@ -176,9 +153,9 @@
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             this.SuspendLayout();
             // 
             // navbarImageCollectionLarge
@@ -208,11 +185,6 @@
             this.ribbonControl.Images = this.ribbonImageCollection;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
-            this.iExit,
-            this.iHelp,
-            this.iAbout,
-            this.siInfo,
-            this.editAppointmentQueryItem1,
             this.editOccurrenceUICommandItem1,
             this.editSeriesUICommandItem1,
             this.deleteAppointmentsItem1,
@@ -294,43 +266,27 @@
             this.barButtonItem36,
             this.barButtonItem37,
             this.barButtonItem38,
-            this.rgbiSkins});
+            this.rgbiSkins,
+            this.barStaticItem1});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 158;
+            this.ribbonControl.MaxItemId = 160;
             this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.fileRibbonPage1,
-            this.homeRibbonPage1,
-            this.viewRibbonPage1,
-            this.ribbonPage1,
-            this.helpRibbonPage});
+            this.fileRibbonPage1});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDuration1,
             this.repositoryItemSpinEdit1});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl.Size = new System.Drawing.Size(991, 147);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iHelp);
             this.ribbonControl.Click += new System.EventHandler(this.treeList1_Click);
             // 
             // appMenu
             // 
-            this.appMenu.ItemLinks.Add(this.iExit);
             this.appMenu.Name = "appMenu";
             this.appMenu.Ribbon = this.ribbonControl;
             this.appMenu.ShowRightPane = true;
-            // 
-            // iExit
-            // 
-            this.iExit.Caption = "Exit";
-            this.iExit.Description = "Closes this program after prompting you to save unsaved data.";
-            this.iExit.Hint = "Closes this program after prompting you to save unsaved data";
-            this.iExit.Id = 20;
-            this.iExit.ImageIndex = 6;
-            this.iExit.LargeImageIndex = 6;
-            this.iExit.Name = "iExit";
             // 
             // ribbonImageCollection
             // 
@@ -338,44 +294,6 @@
             this.ribbonImageCollection.Images.SetKeyName(0, "Ribbon_Exit_16x16.png");
             this.ribbonImageCollection.Images.SetKeyName(1, "Ribbon_Content_16x16.png");
             this.ribbonImageCollection.Images.SetKeyName(2, "Ribbon_Info_16x16.png");
-            // 
-            // iHelp
-            // 
-            this.iHelp.Caption = "说明";
-            this.iHelp.Description = "Start the program help system.";
-            this.iHelp.Hint = "Start the program help system";
-            this.iHelp.Id = 22;
-            this.iHelp.ImageIndex = 7;
-            this.iHelp.LargeImageIndex = 7;
-            this.iHelp.Name = "iHelp";
-            // 
-            // iAbout
-            // 
-            this.iAbout.Caption = "帮助";
-            this.iAbout.Description = "Displays general program information.";
-            this.iAbout.Hint = "Displays general program information";
-            this.iAbout.Id = 24;
-            this.iAbout.ImageIndex = 8;
-            this.iAbout.LargeImageIndex = 8;
-            this.iAbout.Name = "iAbout";
-            // 
-            // siInfo
-            // 
-            this.siInfo.Caption = "Some Info";
-            this.siInfo.Id = 32;
-            this.siInfo.Name = "siInfo";
-            this.siInfo.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // editAppointmentQueryItem1
-            // 
-            this.editAppointmentQueryItem1.Caption = "&Open";
-            this.editAppointmentQueryItem1.Enabled = false;
-            this.editAppointmentQueryItem1.Id = 62;
-            this.editAppointmentQueryItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.editOccurrenceUICommandItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.editSeriesUICommandItem1)});
-            this.editAppointmentQueryItem1.Name = "editAppointmentQueryItem1";
-            this.editAppointmentQueryItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // editOccurrenceUICommandItem1
             // 
@@ -957,38 +875,43 @@
             // 
             // barStaticItem2
             // 
-            this.barStaticItem2.Caption = "状态";
+            this.barStaticItem2.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            this.barStaticItem2.Caption = "状态：正常";
             this.barStaticItem2.Id = 144;
             this.barStaticItem2.Name = "barStaticItem2";
             this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barStaticItem3
             // 
-            this.barStaticItem3.Caption = "终端号";
+            this.barStaticItem3.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            this.barStaticItem3.Caption = "终端号：1000";
             this.barStaticItem3.Id = 146;
             this.barStaticItem3.Name = "barStaticItem3";
-            this.barStaticItem3.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.barStaticItem3.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barStaticItem4
             // 
-            this.barStaticItem4.Caption = "工号";
+            this.barStaticItem4.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            this.barStaticItem4.Caption = "工号：1000";
             this.barStaticItem4.Id = 147;
             this.barStaticItem4.Name = "barStaticItem4";
             this.barStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barStaticItem5
             // 
-            this.barStaticItem5.Caption = "姓名";
+            this.barStaticItem5.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            this.barStaticItem5.Caption = "姓名：测试账户";
             this.barStaticItem5.Id = 148;
             this.barStaticItem5.Name = "barStaticItem5";
             this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barStaticItem6
             // 
-            this.barStaticItem6.Caption = "时间";
+            this.barStaticItem6.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            this.barStaticItem6.Caption = "时间：2014年11月11日 11:07:55";
             this.barStaticItem6.Id = 149;
             this.barStaticItem6.Name = "barStaticItem6";
-            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // barButtonItem35
             // 
@@ -1072,153 +995,6 @@
             this.ribbonPageGroup18.Name = "ribbonPageGroup18";
             this.ribbonPageGroup18.Text = "皮肤";
             // 
-            // homeRibbonPage1
-            // 
-            this.homeRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup4,
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup7});
-            this.homeRibbonPage1.Name = "homeRibbonPage1";
-            this.homeRibbonPage1.Text = "门票操作";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "财务出/入库";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem6);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "门票出库";
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "售/退票";
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem9);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "销/退票";
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem12);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem13);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem14);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem15);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem16);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "查询";
-            // 
-            // viewRibbonPage1
-            // 
-            this.viewRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup8,
-            this.ribbonPageGroup9,
-            this.ribbonPageGroup10,
-            this.ribbonPageGroup11,
-            this.ribbonPageGroup12,
-            this.ribbonPageGroup13});
-            this.viewRibbonPage1.Name = "viewRibbonPage1";
-            this.viewRibbonPage1.Text = "高级查询";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem17);
-            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem18);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "门票查询";
-            // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem19);
-            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem20);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "游客/IC";
-            // 
-            // ribbonPageGroup10
-            // 
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem21);
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem22);
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem23);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.Text = "进销存";
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem24);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem25);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "检入";
-            // 
-            // ribbonPageGroup12
-            // 
-            this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem26);
-            this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem27);
-            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.Text = "明细查询";
-            // 
-            // ribbonPageGroup13
-            // 
-            this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem28);
-            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
-            this.ribbonPageGroup13.Text = "报表";
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup14,
-            this.ribbonPageGroup15,
-            this.ribbonPageGroup16});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "管理";
-            // 
-            // ribbonPageGroup14
-            // 
-            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem29);
-            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.Text = "密码";
-            // 
-            // ribbonPageGroup15
-            // 
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem30);
-            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-            this.ribbonPageGroup15.Text = "结算";
-            // 
-            // ribbonPageGroup16
-            // 
-            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem31);
-            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem32);
-            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem33);
-            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem34);
-            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
-            this.ribbonPageGroup16.Text = "项目管理";
-            // 
-            // helpRibbonPage
-            // 
-            this.helpRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.helpRibbonPageGroup});
-            this.helpRibbonPage.Name = "helpRibbonPage";
-            this.helpRibbonPage.Text = "关于";
-            // 
-            // helpRibbonPageGroup
-            // 
-            this.helpRibbonPageGroup.ItemLinks.Add(this.iHelp);
-            this.helpRibbonPageGroup.ItemLinks.Add(this.iAbout);
-            this.helpRibbonPageGroup.Name = "helpRibbonPageGroup";
-            this.helpRibbonPageGroup.Text = "关于";
-            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
@@ -1234,7 +1010,6 @@
             // 
             // schedulerBarController1
             // 
-            this.schedulerBarController1.BarItems.Add(this.editAppointmentQueryItem1);
             this.schedulerBarController1.BarItems.Add(this.editOccurrenceUICommandItem1);
             this.schedulerBarController1.BarItems.Add(this.editSeriesUICommandItem1);
             this.schedulerBarController1.BarItems.Add(this.deleteAppointmentsItem1);
@@ -1344,6 +1119,7 @@
             this.treeCol.AllowIncrementalSearch = false;
             this.treeCol.Caption = "系统操作";
             this.treeCol.FieldName = "COLNAME";
+            this.treeCol.MinWidth = 49;
             this.treeCol.Name = "treeCol";
             this.treeCol.OptionsColumn.AllowEdit = false;
             this.treeCol.OptionsColumn.AllowMove = false;
@@ -1356,6 +1132,70 @@
             this.treeCol.Visible = true;
             this.treeCol.VisibleIndex = 0;
             this.treeCol.Width = 93;
+            // 
+            // imageCollection1
+            // 
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.InsertGalleryImage("bringforward_16x16.png", "images/arrange/bringforward_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrange/bringforward_16x16.png"), 0);
+            this.imageCollection1.Images.SetKeyName(0, "bringforward_16x16.png");
+            this.imageCollection1.InsertGalleryImage("addfooter_16x16.png", "images/reports/addfooter_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/addfooter_16x16.png"), 1);
+            this.imageCollection1.Images.SetKeyName(1, "addfooter_16x16.png");
+            this.imageCollection1.InsertGalleryImage("addheader_16x16.png", "images/reports/addheader_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/addheader_16x16.png"), 2);
+            this.imageCollection1.Images.SetKeyName(2, "addheader_16x16.png");
+            this.imageCollection1.InsertGalleryImage("showworktimeonly_16x16.png", "images/scheduling/showworktimeonly_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/showworktimeonly_16x16.png"), 3);
+            this.imageCollection1.Images.SetKeyName(3, "showworktimeonly_16x16.png");
+            this.imageCollection1.InsertGalleryImage("previous_16x16.png", "images/navigation/previous_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/navigation/previous_16x16.png"), 4);
+            this.imageCollection1.Images.SetKeyName(4, "previous_16x16.png");
+            this.imageCollection1.InsertGalleryImage("next_16x16.png", "grayscaleimages/navigation/next_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/navigation/next_16x16.png"), 5);
+            this.imageCollection1.Images.SetKeyName(5, "next_16x16.png");
+            this.imageCollection1.InsertGalleryImage("redo_16x16.png", "grayscaleimages/history/redo_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/history/redo_16x16.png"), 6);
+            this.imageCollection1.Images.SetKeyName(6, "redo_16x16.png");
+            this.imageCollection1.InsertGalleryImage("splitappointment_16x16.png", "grayscaleimages/scheduling/splitappointment_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/scheduling/splitappointment_16x16.png"), 7);
+            this.imageCollection1.Images.SetKeyName(7, "splitappointment_16x16.png");
+            this.imageCollection1.InsertGalleryImage("separator_16x16.png", "images/reports/separator_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/separator_16x16.png"), 8);
+            this.imageCollection1.Images.SetKeyName(8, "separator_16x16.png");
+            this.imageCollection1.InsertGalleryImage("grid_16x16.png", "images/grid/grid_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/grid/grid_16x16.png"), 9);
+            this.imageCollection1.Images.SetKeyName(9, "grid_16x16.png");
+            this.imageCollection1.InsertGalleryImage("employee_16x16.png", "images/people/employee_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/employee_16x16.png"), 10);
+            this.imageCollection1.Images.SetKeyName(10, "employee_16x16.png");
+            this.imageCollection1.InsertGalleryImage("team_16x16.png", "images/people/team_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/team_16x16.png"), 11);
+            this.imageCollection1.Images.SetKeyName(11, "team_16x16.png");
+            this.imageCollection1.InsertGalleryImage("zoom_16x16.png", "images/zoom/zoom_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/zoom/zoom_16x16.png"), 12);
+            this.imageCollection1.Images.SetKeyName(12, "zoom_16x16.png");
+            this.imageCollection1.InsertGalleryImage("bringtofront_16x16.png", "images/arrange/bringtofront_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrange/bringtofront_16x16.png"), 13);
+            this.imageCollection1.Images.SetKeyName(13, "bringtofront_16x16.png");
+            this.imageCollection1.InsertGalleryImage("country_16x16.png", "images/miscellaneous/country_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/miscellaneous/country_16x16.png"), 14);
+            this.imageCollection1.Images.SetKeyName(14, "country_16x16.png");
+            this.imageCollection1.InsertGalleryImage("new_16x16.png", "images/actions/new_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/new_16x16.png"), 15);
+            this.imageCollection1.Images.SetKeyName(15, "new_16x16.png");
+            this.imageCollection1.InsertGalleryImage("currency_16x16.png", "images/miscellaneous/currency_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/miscellaneous/currency_16x16.png"), 16);
+            this.imageCollection1.Images.SetKeyName(16, "currency_16x16.png");
+            this.imageCollection1.InsertGalleryImage("previewchart_16x16.png", "images/chart/previewchart_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/chart/previewchart_16x16.png"), 17);
+            this.imageCollection1.Images.SetKeyName(17, "previewchart_16x16.png");
+            this.imageCollection1.InsertGalleryImage("kpi_16x16.png", "images/chart/kpi_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/chart/kpi_16x16.png"), 18);
+            this.imageCollection1.Images.SetKeyName(18, "kpi_16x16.png");
+            this.imageCollection1.InsertGalleryImage("selectall_16x16.png", "images/actions/selectall_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/selectall_16x16.png"), 19);
+            this.imageCollection1.Images.SetKeyName(19, "selectall_16x16.png");
+            this.imageCollection1.InsertGalleryImage("alignjustify_16x16.png", "images/format/alignjustify_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/format/alignjustify_16x16.png"), 20);
+            this.imageCollection1.Images.SetKeyName(20, "alignjustify_16x16.png");
+            this.imageCollection1.InsertGalleryImage("replace_16x16.png", "images/format/replace_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/format/replace_16x16.png"), 21);
+            this.imageCollection1.Images.SetKeyName(21, "replace_16x16.png");
+            this.imageCollection1.InsertGalleryImage("converttoparagraphs_16x16.png", "images/reports/converttoparagraphs_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/converttoparagraphs_16x16.png"), 22);
+            this.imageCollection1.Images.SetKeyName(22, "converttoparagraphs_16x16.png");
+            this.imageCollection1.InsertGalleryImage("properties_16x16.png", "images/setup/properties_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/setup/properties_16x16.png"), 23);
+            this.imageCollection1.Images.SetKeyName(23, "properties_16x16.png");
+            this.imageCollection1.InsertGalleryImage("show_16x16.png", "images/actions/show_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/show_16x16.png"), 24);
+            this.imageCollection1.Images.SetKeyName(24, "show_16x16.png");
+            this.imageCollection1.InsertGalleryImage("assigntome_16x16.png", "images/people/assigntome_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/assigntome_16x16.png"), 25);
+            this.imageCollection1.Images.SetKeyName(25, "assigntome_16x16.png");
+            this.imageCollection1.InsertGalleryImage("notes_16x16.png", "images/content/notes_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/content/notes_16x16.png"), 26);
+            this.imageCollection1.Images.SetKeyName(26, "notes_16x16.png");
+            this.imageCollection1.InsertGalleryImage("publicfix_16x16.png", "images/people/publicfix_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/publicfix_16x16.png"), 27);
+            this.imageCollection1.Images.SetKeyName(27, "publicfix_16x16.png");
+            this.imageCollection1.InsertGalleryImage("usergroup_16x16.png", "images/people/usergroup_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/usergroup_16x16.png"), 28);
+            this.imageCollection1.Images.SetKeyName(28, "usergroup_16x16.png");
+            this.imageCollection1.InsertGalleryImage("time_16x16.png", "images/scheduling/time_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/time_16x16.png"), 29);
+            this.imageCollection1.Images.SetKeyName(29, "time_16x16.png");
             // 
             // panelControl2
             // 
@@ -1402,69 +1242,12 @@
             this.ribbonGalleryBarItem2.Id = 60;
             this.ribbonGalleryBarItem2.Name = "ribbonGalleryBarItem2";
             // 
-            // imageCollection1
+            // barStaticItem1
             // 
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.InsertGalleryImage("bringforward_16x16.png", "images/arrange/bringforward_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrange/bringforward_16x16.png"), 0);
-            this.imageCollection1.Images.SetKeyName(0, "bringforward_16x16.png");
-            this.imageCollection1.InsertGalleryImage("zoom_16x16.png", "images/zoom/zoom_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/zoom/zoom_16x16.png"), 1);
-            this.imageCollection1.Images.SetKeyName(1, "zoom_16x16.png");
-            this.imageCollection1.InsertGalleryImage("properties_16x16.png", "images/setup/properties_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/setup/properties_16x16.png"), 2);
-            this.imageCollection1.Images.SetKeyName(2, "properties_16x16.png");
-            this.imageCollection1.InsertGalleryImage("addfooter_16x16.png", "images/reports/addfooter_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/addfooter_16x16.png"), 3);
-            this.imageCollection1.Images.SetKeyName(3, "addfooter_16x16.png");
-            this.imageCollection1.InsertGalleryImage("addheader_16x16.png", "images/reports/addheader_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/addheader_16x16.png"), 4);
-            this.imageCollection1.Images.SetKeyName(4, "addheader_16x16.png");
-            this.imageCollection1.InsertGalleryImage("showworktimeonly_16x16.png", "images/scheduling/showworktimeonly_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/showworktimeonly_16x16.png"), 5);
-            this.imageCollection1.Images.SetKeyName(5, "showworktimeonly_16x16.png");
-            this.imageCollection1.InsertGalleryImage("previous_16x16.png", "images/navigation/previous_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/navigation/previous_16x16.png"), 6);
-            this.imageCollection1.Images.SetKeyName(6, "previous_16x16.png");
-            this.imageCollection1.InsertGalleryImage("next_16x16.png", "grayscaleimages/navigation/next_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/navigation/next_16x16.png"), 7);
-            this.imageCollection1.Images.SetKeyName(7, "next_16x16.png");
-            this.imageCollection1.InsertGalleryImage("redo_16x16.png", "grayscaleimages/history/redo_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/history/redo_16x16.png"), 8);
-            this.imageCollection1.Images.SetKeyName(8, "redo_16x16.png");
-            this.imageCollection1.InsertGalleryImage("splitappointment_16x16.png", "grayscaleimages/scheduling/splitappointment_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("grayscaleimages/scheduling/splitappointment_16x16.png"), 9);
-            this.imageCollection1.Images.SetKeyName(9, "splitappointment_16x16.png");
-            this.imageCollection1.InsertGalleryImage("separator_16x16.png", "images/reports/separator_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/separator_16x16.png"), 10);
-            this.imageCollection1.Images.SetKeyName(10, "separator_16x16.png");
-            this.imageCollection1.InsertGalleryImage("grid_16x16.png", "images/grid/grid_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/grid/grid_16x16.png"), 11);
-            this.imageCollection1.Images.SetKeyName(11, "grid_16x16.png");
-            this.imageCollection1.InsertGalleryImage("employee_16x16.png", "images/people/employee_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/employee_16x16.png"), 12);
-            this.imageCollection1.Images.SetKeyName(12, "employee_16x16.png");
-            this.imageCollection1.InsertGalleryImage("team_16x16.png", "images/people/team_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/team_16x16.png"), 13);
-            this.imageCollection1.Images.SetKeyName(13, "team_16x16.png");
-            this.imageCollection1.InsertGalleryImage("bringtofront_16x16.png", "images/arrange/bringtofront_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrange/bringtofront_16x16.png"), 14);
-            this.imageCollection1.Images.SetKeyName(14, "bringtofront_16x16.png");
-            this.imageCollection1.InsertGalleryImage("country_16x16.png", "images/miscellaneous/country_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/miscellaneous/country_16x16.png"), 15);
-            this.imageCollection1.Images.SetKeyName(15, "country_16x16.png");
-            this.imageCollection1.InsertGalleryImage("new_16x16.png", "images/actions/new_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/new_16x16.png"), 16);
-            this.imageCollection1.Images.SetKeyName(16, "new_16x16.png");
-            this.imageCollection1.InsertGalleryImage("currency_16x16.png", "images/miscellaneous/currency_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/miscellaneous/currency_16x16.png"), 17);
-            this.imageCollection1.Images.SetKeyName(17, "currency_16x16.png");
-            this.imageCollection1.InsertGalleryImage("previewchart_16x16.png", "images/chart/previewchart_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/chart/previewchart_16x16.png"), 18);
-            this.imageCollection1.Images.SetKeyName(18, "previewchart_16x16.png");
-            this.imageCollection1.InsertGalleryImage("kpi_16x16.png", "images/chart/kpi_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/chart/kpi_16x16.png"), 19);
-            this.imageCollection1.Images.SetKeyName(19, "kpi_16x16.png");
-            this.imageCollection1.InsertGalleryImage("selectall_16x16.png", "images/actions/selectall_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/selectall_16x16.png"), 20);
-            this.imageCollection1.Images.SetKeyName(20, "selectall_16x16.png");
-            this.imageCollection1.InsertGalleryImage("alignjustify_16x16.png", "images/format/alignjustify_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/format/alignjustify_16x16.png"), 21);
-            this.imageCollection1.Images.SetKeyName(21, "alignjustify_16x16.png");
-            this.imageCollection1.InsertGalleryImage("replace_16x16.png", "images/format/replace_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/format/replace_16x16.png"), 22);
-            this.imageCollection1.Images.SetKeyName(22, "replace_16x16.png");
-            this.imageCollection1.InsertGalleryImage("converttoparagraphs_16x16.png", "images/reports/converttoparagraphs_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/reports/converttoparagraphs_16x16.png"), 23);
-            this.imageCollection1.Images.SetKeyName(23, "converttoparagraphs_16x16.png");
-            this.imageCollection1.InsertGalleryImage("show_16x16.png", "images/actions/show_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/show_16x16.png"), 24);
-            this.imageCollection1.Images.SetKeyName(24, "show_16x16.png");
-            this.imageCollection1.InsertGalleryImage("assigntome_16x16.png", "images/people/assigntome_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/assigntome_16x16.png"), 25);
-            this.imageCollection1.Images.SetKeyName(25, "assigntome_16x16.png");
-            this.imageCollection1.InsertGalleryImage("notes_16x16.png", "images/content/notes_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/content/notes_16x16.png"), 26);
-            this.imageCollection1.Images.SetKeyName(26, "notes_16x16.png");
-            this.imageCollection1.InsertGalleryImage("publicfix_16x16.png", "images/people/publicfix_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/publicfix_16x16.png"), 27);
-            this.imageCollection1.Images.SetKeyName(27, "publicfix_16x16.png");
-            this.imageCollection1.InsertGalleryImage("usergroup_16x16.png", "images/people/usergroup_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/usergroup_16x16.png"), 28);
-            this.imageCollection1.Images.SetKeyName(28, "usergroup_16x16.png");
-            this.imageCollection1.InsertGalleryImage("time_16x16.png", "images/scheduling/time_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/time_16x16.png"), 29);
-            this.imageCollection1.Images.SetKeyName(29, "time_16x16.png");
+            this.barStaticItem1.Caption = "barStaticItem1";
+            this.barStaticItem1.Id = 159;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // Frm_MainForm
             // 
@@ -1500,9 +1283,9 @@
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1511,12 +1294,6 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        private DevExpress.XtraBars.BarButtonItem iExit;
-        private DevExpress.XtraBars.BarButtonItem iHelp;
-        private DevExpress.XtraBars.BarButtonItem iAbout;
-        private DevExpress.XtraBars.BarStaticItem siInfo;
-        private DevExpress.XtraBars.Ribbon.RibbonPage helpRibbonPage;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup helpRibbonPageGroup;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu appMenu;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.Utils.ImageCollection ribbonImageCollection;
@@ -1524,7 +1301,6 @@
         private DevExpress.Utils.ImageCollection navbarImageCollection;
         private DevExpress.Utils.ImageCollection navbarImageCollectionLarge;
         private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage;
-        private DevExpress.XtraScheduler.UI.EditAppointmentQueryItem editAppointmentQueryItem1;
         private DevExpress.XtraScheduler.UI.EditOccurrenceUICommandItem editOccurrenceUICommandItem1;
         private DevExpress.XtraScheduler.UI.EditSeriesUICommandItem editSeriesUICommandItem1;
         private DevExpress.XtraScheduler.UI.DeleteAppointmentsItem deleteAppointmentsItem1;
@@ -1566,22 +1342,15 @@
         private DevExpress.XtraScheduler.UI.PrintItem printItem1;
         private DevExpress.XtraScheduler.UI.PrintPageSetupItem printPageSetupItem1;
         private DevExpress.XtraScheduler.UI.FileRibbonPage fileRibbonPage1;
-        private DevExpress.XtraScheduler.UI.HomeRibbonPage homeRibbonPage1;
-        private DevExpress.XtraScheduler.UI.ViewRibbonPage viewRibbonPage1;
         private DevExpress.XtraScheduler.UI.SchedulerBarController schedulerBarController1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
@@ -1604,22 +1373,12 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem26;
         private DevExpress.XtraBars.BarButtonItem barButtonItem27;
         private DevExpress.XtraBars.BarButtonItem barButtonItem28;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
         private DevExpress.XtraBars.BarButtonItem barButtonItem29;
         private DevExpress.XtraBars.BarButtonItem barButtonItem30;
         private DevExpress.XtraBars.BarButtonItem barButtonItem31;
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
         private DevExpress.XtraBars.BarButtonItem barButtonItem33;
         private DevExpress.XtraBars.BarButtonItem barButtonItem34;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem barStaticItem4;
@@ -1641,6 +1400,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
         private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
 
     }
 }

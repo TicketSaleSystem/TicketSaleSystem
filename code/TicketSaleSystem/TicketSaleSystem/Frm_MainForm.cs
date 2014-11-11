@@ -24,7 +24,7 @@ namespace TicketSaleSystem
     public partial class Frm_MainForm : RibbonForm
     {
         private string FieldName = "COLNAME"; // 用于TreeList显示文字的列，设计界面右键单击RunDesign
-
+        private int I_ImageCount = 0;
         public Frm_MainForm()
         {
             InitializeComponent();
@@ -107,6 +107,8 @@ namespace TicketSaleSystem
                 	                                    TSS_DICTIONARY T
                                                     WHERE
                 	                                    T.DICT_TYPE = 'Modules'
+													AND
+														(CONVERT(INT,SUBSTRING(t.DICT_ID,2,4)) BETWEEN 200 AND 499)
                                                     ORDER BY ID");
                 DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr);
                 if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -172,7 +174,47 @@ namespace TicketSaleSystem
 
         private void treeList1_CustomDrawNodeImages(object sender, DevExpress.XtraTreeList.CustomDrawNodeImagesEventArgs e)
         {
-            e.SelectImageIndex = e.Node.Level + 1; // e.SelectImageIndex为图片在ImageList中的index
+            switch (e.Node.GetDisplayText(FieldName))
+            {
+                case "门票操作": I_ImageCount = 0; break;
+                case "财务入库": I_ImageCount = 1; break;
+                case "财务出库": I_ImageCount = 2; break;
+                case "门票出库": I_ImageCount = 3; break;
+                case "售票": I_ImageCount = 4; break;
+                case "退票": I_ImageCount = 5; break;
+                case "PDA销票": I_ImageCount = 6; break;
+                case "人工销票": I_ImageCount = 7; break;
+                case "异常退票": I_ImageCount = 8; break;
+                case "出库门票": I_ImageCount = 9; break;
+                case "销售查询": I_ImageCount = 10; break;
+                case "个人结存": I_ImageCount = 11; break;
+                case "团体购票查询": I_ImageCount = 12; break;
+                case "高级查询": I_ImageCount = 12; break;
+                case "门票状态查询": I_ImageCount = 13; break;
+                case "门票综合查询": I_ImageCount = 13; break;
+                case "游客查询": I_ImageCount = 14; break;
+                case "IC卡统计": I_ImageCount = 15; break;
+                case "销售汇总": I_ImageCount = 16; break;
+                case "进销汇总": I_ImageCount = 17; break;
+                case "时段汇总": I_ImageCount = 18; break;
+                case "门票检入查询": I_ImageCount = 13; break;
+                case "IC卡检入查询": I_ImageCount = 15; break;
+                case "销售明细": I_ImageCount = 20; break;
+                case "缴款明细": I_ImageCount = 21; break;
+                case "报表查询": I_ImageCount = 22; break;
+                case "管理": I_ImageCount = 23; break;
+                case "密码修改": I_ImageCount = 24; break;
+                case "售票员结算": I_ImageCount = 25; break;
+                case "门票项目": I_ImageCount = 26; break;
+                case "人员管理": I_ImageCount = 27; break;
+                case "团体管理": I_ImageCount = 28; break;
+                case "使用时间管理": I_ImageCount = 29; break;
+                default:
+                    I_ImageCount = -1;
+                    break;
+            }
+            e.SelectImageIndex = I_ImageCount;
+            e.StateImageIndex = I_ImageCount; // e.SelectImageIndex为图片在ImageList中的index
         }
     }
 }
