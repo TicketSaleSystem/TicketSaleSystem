@@ -185,6 +185,7 @@
     <EmbeddedResource Include="Frm_MainForm.resx">
       <DependentUpon>Frm_MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -318,6 +319,10 @@
     <Content Include="dll\DevExpress.XtraScheduler.v14.1.dll" />
     <Content Include="dll\DevExpress.XtraScheduler.v14.1.Extensions.dll" />
     <Content Include="dll\DevExpress.XtraTreeList.v14.1.dll" />
+    <Content Include="Resources\登录.png" />
+    <Content Include="Resources\绿草.jpg" />
+    <Content Include="Resources\逐墨.jpg" />
+    <Content Include="Resources\逐墨Login.jpg" />
     <None Include="Resources\首页.png" />
   </ItemGroup>
   <ItemGroup>

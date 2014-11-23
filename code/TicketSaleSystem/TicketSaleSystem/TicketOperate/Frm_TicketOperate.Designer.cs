@@ -115,6 +115,8 @@
             // 
             this.textEdit1.Location = new System.Drawing.Point(272, 60);
             this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit1.Size = new System.Drawing.Size(318, 20);
             this.textEdit1.TabIndex = 2;
             // 
@@ -122,6 +124,8 @@
             // 
             this.textEdit2.Location = new System.Drawing.Point(272, 116);
             this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit2.Size = new System.Drawing.Size(318, 20);
             this.textEdit2.TabIndex = 2;
             // 
@@ -129,6 +133,8 @@
             // 
             this.textEdit3.Location = new System.Drawing.Point(272, 171);
             this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Properties.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textEdit3.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit3.Size = new System.Drawing.Size(318, 20);
             this.textEdit3.TabIndex = 2;
             // 
@@ -136,6 +142,8 @@
             // 
             this.textEdit4.Location = new System.Drawing.Point(272, 225);
             this.textEdit4.Name = "textEdit4";
+            this.textEdit4.Properties.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textEdit4.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit4.Size = new System.Drawing.Size(318, 20);
             this.textEdit4.TabIndex = 2;
             // 
@@ -143,13 +151,17 @@
             // 
             this.textEdit5.Location = new System.Drawing.Point(272, 279);
             this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Properties.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textEdit5.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit5.Size = new System.Drawing.Size(318, 20);
             this.textEdit5.TabIndex = 2;
             // 
             // Frm_TicketOperate
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TicketSaleSystem.Properties.Resources.逐墨;
             this.Controls.Add(this.textEdit5);
             this.Controls.Add(this.textEdit4);
             this.Controls.Add(this.textEdit3);
@@ -162,8 +174,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Frm_TicketOperate";
-            this.Size = new System.Drawing.Size(773, 500);
+            this.Size = new System.Drawing.Size(772, 515);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();

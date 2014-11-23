@@ -25,9 +25,9 @@ namespace TicketSaleSystem.SystemOperate
             this.Close();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void panelControl1_MouseClick(object sender, MouseEventArgs e)
         {
-            try 
+            try
             {
                 // 登录
                 string sqlStr = "select * from TSS_USER where IS_DEL = '0' and USER_ID=@USER_ID and PASSWORD=@PASSWORD";
@@ -44,7 +44,7 @@ namespace TicketSaleSystem.SystemOperate
                 else
                     MessageBox.Show("账号或密码错误！");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // 错误处理，写入日志
             }
