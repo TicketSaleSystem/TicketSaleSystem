@@ -138,6 +138,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.ribbonGalleryBarItem2 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
@@ -1259,6 +1260,12 @@
             this.ribbonGalleryBarItem2.Id = 60;
             this.ribbonGalleryBarItem2.Name = "ribbonGalleryBarItem2";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Frm_MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1413,6 +1420,7 @@
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
         private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private System.Windows.Forms.Timer timer1;
 
     }
 }

@@ -25,11 +25,22 @@ namespace TicketSaleSystem
     {
         private string FieldName = "COLNAME"; // 用于TreeList显示文字的列，设计界面右键单击RunDesign
         private int I_ImageCount = 0;
-        public Frm_MainForm()
+        private Frm_Login frm_Login = null;
+        public Frm_MainForm(Frm_Login frm)
         {
+            frm_Login = frm;
             InitializeComponent();
+            InitStatus();
             InitSkinGallery();
             BindTreeListData();
+        }
+
+        private void InitStatus()
+        {
+            DateTime dt = DateTime.Now;
+            this.barStaticItem4.Caption = "工号：" + SystemInfo.UserID;
+            this.barStaticItem5.Caption = "姓名：" + SystemInfo.UserName;
+            this.barStaticItem6.Caption = "时间：" + string.Format("{0:yyyy年MM月dd日 HH:mm:ss}", dt);
         }
         void InitSkinGallery()
         {
@@ -45,6 +56,31 @@ namespace TicketSaleSystem
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             // 注销
+            try
+            {
+                MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+                DialogResult dr = MessageBox.Show("您确定要注销吗?", "注销用户", messButton);
+                if (dr == DialogResult.OK)
+                {
+                    // 重置全局变量
+                    // 重置按钮
+                    // 重置树
+                    // 关闭除主页外的全部标签页
+                    for (int i = xtraTabControl1.TabPages.Count - 1; i > 0 ; i--)
+                    {
+                        XtraTabPage page = xtraTabControl1.TabPages[i];
+                        if (page.Text != "首 页")
+                        {
+                            xtraTabControl1.TabPages.Remove(page);
+                            page.Dispose();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Log写入失败：" + ex.Message);
+            }
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -52,7 +88,12 @@ namespace TicketSaleSystem
             // 退出
             try
             {
-                LogFile.WriteLine("Log日志测试");
+                MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+                DialogResult dr = MessageBox.Show("您确定要退出吗?", "退出系统", messButton);
+                if (dr == DialogResult.OK)
+                {
+                    frm_Login.Close();
+                }
             }
             catch (Exception ex) 
             {
@@ -215,6 +256,11 @@ namespace TicketSaleSystem
             }
             e.SelectImageIndex = I_ImageCount;
             e.StateImageIndex = I_ImageCount; // e.SelectImageIndex为图片在ImageList中的index
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            InitStatus();
         }
     }
 }

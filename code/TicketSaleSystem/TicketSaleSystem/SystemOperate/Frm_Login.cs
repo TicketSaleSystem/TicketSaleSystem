@@ -40,14 +40,34 @@ namespace TicketSaleSystem.SystemOperate
                 sqlParams[1].Value = txtPWD.Text;
                 DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr, sqlParams);
                 if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
                     MessageBox.Show("您好！" + ds.Tables[0].Rows[0]["USER_NAME"].ToString());
+                    SetSystemInfo(ds.Tables[0]);
+                    Frm_MainForm mainForm = new Frm_MainForm(this);
+                    mainForm.Show();
+                    this.Hide();
+                }
                 else
+                {
                     MessageBox.Show("账号或密码错误！");
+                }
             }
             catch (Exception ex)
             {
                 // 错误处理，写入日志
             }
+        }
+
+        /// <summary>
+        /// 登陆成功后设置界面显示的用户信息
+        /// </summary>
+        /// <param name="dataTable"></param>
+        private void SetSystemInfo(DataTable dataTable)
+        {
+            if (dataTable == null || dataTable.Rows.Count <= 0)
+                return;
+            SystemInfo.UserID = dataTable.Rows[0]["USER_ID"].ToString();
+            SystemInfo.UserName = dataTable.Rows[0]["USER_NAME"].ToString();
         }
     }
 }
