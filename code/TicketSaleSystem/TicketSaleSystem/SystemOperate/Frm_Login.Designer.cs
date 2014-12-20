@@ -63,7 +63,7 @@
             this.txtUserID.Location = new System.Drawing.Point(388, 159);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(252, 22);
-            this.txtUserID.TabIndex = 2;
+            this.txtUserID.TabIndex = 0;
             // 
             // txtPWD
             // 
@@ -73,7 +73,7 @@
             this.txtPWD.Name = "txtPWD";
             this.txtPWD.PasswordChar = '*';
             this.txtPWD.Size = new System.Drawing.Size(252, 22);
-            this.txtPWD.TabIndex = 2;
+            this.txtPWD.TabIndex = 1;
             // 
             // panelControl1
             // 
@@ -84,7 +84,7 @@
             this.panelControl1.Location = new System.Drawing.Point(400, 490);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(162, 89);
-            this.panelControl1.TabIndex = 3;
+            this.panelControl1.TabIndex = 2;
             this.panelControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelControl1_MouseClick);
             // 
             // Frm_Login
