@@ -25,7 +25,8 @@ namespace TicketSaleSystem.SystemOperate
             this.Close();
         }
 
-        private void panelControl1_MouseClick(object sender, MouseEventArgs e)
+        // 登录
+        private void Login()
         {
             try
             {
@@ -58,6 +59,11 @@ namespace TicketSaleSystem.SystemOperate
             }
         }
 
+        private void panelControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login();
+        }
+
         /// <summary>
         /// 登陆成功后设置界面显示的用户信息
         /// </summary>
@@ -69,5 +75,15 @@ namespace TicketSaleSystem.SystemOperate
             SystemInfo.UserID = dataTable.Rows[0]["USER_ID"].ToString();
             SystemInfo.UserName = dataTable.Rows[0]["USER_NAME"].ToString();
         }
+
+        // 添加键盘响应事件
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                Login();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        } 
     }
 }
