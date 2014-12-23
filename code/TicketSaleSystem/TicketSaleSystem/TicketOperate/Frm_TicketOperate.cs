@@ -8,11 +8,16 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
+using TSS_Model;
+using TSS_Model.TicketOperate;
+using TSS_BLL.TicketOperate;
 
 namespace TicketSaleSystem.TicketOperate
 {
     public partial class Frm_TicketOperate : DevExpress.XtraEditors.XtraUserControl
     {
+        private FinanceStockInBLL financeStockInBLL = new FinanceStockInBLL();
+
         public Frm_TicketOperate()
         {
             InitializeComponent();
@@ -68,47 +73,16 @@ namespace TicketSaleSystem.TicketOperate
                 //提示信息,说明未选择下拉框
                 MessageBox.Show("带 * 为必填项！");
             }
-            Submit();
-        }
-
-        private void Submit()
-        {
-            try
-            {
-                string sqlStr = @"INSERT INTO TSS_FINANCIAL_IN(
-                                                    FIN_SUPPLY_ID, FIN_TICKET_START, FIN_TICKET_COUNT
-                                                   ,FIN_TICKET_END, FIN_TICKET_ITEM_ID, FIN_OPERATE_ID
-                                                   ,FIN_OPERATE_DATE, FIN_TYPE) 
-                                           VALUES (
-                                                    @FIN_SUPPLY_ID, @FIN_TICKET_START, @FIN_TICKET_COUNT
-                                                   ,@FIN_TICKET_END, @FIN_TICKET_ITEM_ID, @FIN_OPERATE_ID
-                                                   ,@FIN_OPERATE_DATE, @FIN_TYPE)";
-                SqlParameter[] sqlParams = new SqlParameter[]
-                {
-                    new SqlParameter("@FIN_SUPPLY_ID", SqlDbType.NVarChar),
-                    new SqlParameter("@FIN_TICKET_START", SqlDbType.NVarChar),
-                    new SqlParameter("@FIN_TICKET_COUNT", SqlDbType.Int),
-                    new SqlParameter("@FIN_TICKET_END", SqlDbType.NVarChar),
-                    new SqlParameter("@FIN_TICKET_ITEM_ID", SqlDbType.NVarChar),
-                    new SqlParameter("@FIN_OPERATE_ID", SqlDbType.NVarChar),
-                    new SqlParameter("@FIN_OPERATE_DATE", SqlDbType.DateTime),
-                    new SqlParameter("@FIN_TYPE", SqlDbType.NVarChar)
-                };
-                sqlParams[0].Value = this.lookUpEdit2.EditValue;
-                sqlParams[1].Value = txtQSHM.Text;
-                sqlParams[2].Value = Int32.Parse(txtZS.Text);
-                sqlParams[3].Value = txtZZHM.Text;
-                sqlParams[4].Value = this.lookUpEdit1.EditValue;
-                sqlParams[5].Value = SystemInfo.UserID;
-                sqlParams[6].Value = DateTime.Now;
-                sqlParams[7].Value = "0";
-                SqlHelper.ExecuteNonQuery(SqlHelper.ConStr, CommandType.Text, sqlStr, sqlParams);
-                MessageBox.Show("操作成功！");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            FinanceStockInEntity financeStockInEntity = new FinanceStockInEntity();
+            financeStockInEntity.FIN_SUPPLY_ID = this.lookUpEdit2.EditValue.ToString();
+            financeStockInEntity.FIN_TICKET_START = txtQSHM.Text;
+            financeStockInEntity.FIN_TICKET_COUNT = Int32.Parse(txtZS.Text);
+            financeStockInEntity.FIN_TICKET_END = txtZZHM.Text;
+            financeStockInEntity.FIN_TICKET_ITEM_ID = this.lookUpEdit1.EditValue.ToString();
+            financeStockInEntity.FIN_OPERATE_ID = SystemInfo.UserID;
+            financeStockInEntity.FIN_OPERATE_DATE = DateTime.Now;
+            financeStockInEntity.FIN_TYPE = "0";
+            financeStockInBLL.Save(financeStockInEntity);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

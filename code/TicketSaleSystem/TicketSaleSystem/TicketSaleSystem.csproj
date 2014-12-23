@@ -147,6 +147,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TSS_BLL">
+      <HintPath>..\BLL\bin\Debug\TSS_BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="TSS_Model">
+      <HintPath>..\Model\bin\Debug\TSS_Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\FileHandler.cs" />
@@ -329,7 +335,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
