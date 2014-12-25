@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using TSS_Model;
 using TSS_Model.TicketOperate;
 using TSS_BLL.TicketOperate;
+using ToolsHelper;
 
 namespace TicketSaleSystem.TicketOperate
 {
@@ -82,7 +83,7 @@ namespace TicketSaleSystem.TicketOperate
             financeStockInEntity.FIN_OPERATE_ID = SystemInfo.UserID;
             financeStockInEntity.FIN_OPERATE_DATE = DateTime.Now;
             financeStockInEntity.FIN_TYPE = "0";
-            financeStockInBLL.Save(financeStockInEntity);
+            financeStockInBLL.SaveFinanceStockIn(financeStockInEntity);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

@@ -15,12 +15,12 @@ namespace TSS_BLL.TicketOperate
     {
         private FinanceStockInDAL financeStockInDAL = new FinanceStockInDAL();
 
-        public bool Save(FinanceStockInEntity financeStockInEntity)
+        public bool SaveFinanceStockIn(FinanceStockInEntity financeStockInEntity)
         {
             bool flag = false;
             try
             {
-                flag = financeStockInDAL.Save(financeStockInEntity);
+                flag = financeStockInDAL.SaveFinanceStockIn(financeStockInEntity);
             }
             catch (Exception ex)
             {

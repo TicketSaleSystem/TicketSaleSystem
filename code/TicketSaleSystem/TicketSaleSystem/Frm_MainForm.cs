@@ -15,8 +15,8 @@ using DevExpress.XtraBars.Helpers;
 using TicketSaleSystem.SystemOperate;
 using DevExpress.XtraTab;
 using DevExpress.XtraEditors;
-using TicketSaleSystem.Common;
 using DevExpress.XtraTreeList.Nodes;
+using ToolsHelper;
 
 
 namespace TicketSaleSystem
@@ -104,7 +104,7 @@ namespace TicketSaleSystem
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
-            ToolsHelper.AddUserControl(xtraTabControl1, frm, "财务出库", "财务出库");
+            UIHelper.AddUserControl(xtraTabControl1, frm, "财务出库", "财务出库");
         }
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace TicketSaleSystem
             {
                 string disPlayText = clickedNode.GetDisplayText(FieldName); // 显示的汉字，目前无法取到绑定时的数字
                 TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
-                ToolsHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
+                UIHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
             }
         }
 

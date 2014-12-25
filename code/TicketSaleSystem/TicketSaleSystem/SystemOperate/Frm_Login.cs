@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
+using ToolsHelper;
 
 namespace TicketSaleSystem.SystemOperate
 {

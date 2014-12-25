@@ -147,6 +147,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ToolsHelper">
+      <HintPath>..\ToolsHelper\bin\Debug\ToolsHelper.dll</HintPath>
+    </Reference>
     <Reference Include="TSS_BLL">
       <HintPath>..\BLL\bin\Debug\TSS_BLL.dll</HintPath>
     </Reference>
@@ -155,8 +158,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\FileHandler.cs" />
-    <Compile Include="Common\LogFile.cs" />
     <Compile Include="Frm_IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,7 +172,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\SqlHelper.cs" />
     <Compile Include="SystemInfo.cs" />
     <Compile Include="SystemOperate\Frm_Login.cs">
       <SubType>Form</SubType>
@@ -185,7 +185,6 @@
     <Compile Include="TicketOperate\Frm_TicketOperate.Designer.cs">
       <DependentUpon>Frm_TicketOperate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\ToolsHelper.cs" />
     <EmbeddedResource Include="Frm_IndexForm.resx">
       <DependentUpon>Frm_IndexForm.cs</DependentUpon>
     </EmbeddedResource>

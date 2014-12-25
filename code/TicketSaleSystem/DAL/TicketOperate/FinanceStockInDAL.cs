@@ -14,7 +14,7 @@ namespace TSS_DAL.TicketOperate
     /// </summary>
     public class FinanceStockInDAL
     {
-        public bool Save(FinanceStockInEntity financeStockInEntity)
+        public bool SaveFinanceStockIn(FinanceStockInEntity financeStockInEntity)
         {
             bool flag = false;
             try

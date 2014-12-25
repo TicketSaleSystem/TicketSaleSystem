@@ -11,6 +11,7 @@ using DevExpress.XtraTreeList;
 using System.Data.SqlClient;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTab;
+using ToolsHelper;
 
 namespace TicketSaleSystem
 {
@@ -91,7 +92,7 @@ namespace TicketSaleSystem
             {
                 string disPlayText = clickedNode.GetDisplayText("COLNAME"); // 显示的汉字，目前无法取到绑定时的数字
                 TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
-                ToolsHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
+                UIHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
             }
         }
 
