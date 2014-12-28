@@ -307,19 +307,14 @@ namespace ToolsHelper
                         {
                             for (int n = 0; n < SQLStringList.Count; n++)
                             {
-                                if (n == 0) LogFile.WriteLine("Start!");
                                 string strsql = SQLStringList[n].ToString();
                                 if (strsql.Trim().Length > 1)
                                 {
                                     iCmd.CommandText = strsql;
                                     iCmd.ExecuteNonQuery();
                                 }
-                                if (n % 500 == 0) LogFile.WriteLine("500 Insert!");
-                                if (n == (SQLStringList.Count - 1)) LogFile.WriteLine("End!");
                             }
-                            LogFile.WriteLine("Commit Start!");
                             iDbTran.Commit();
-                            LogFile.WriteLine("Commit End!");
                         }
                         catch (System.Exception E)
                         {

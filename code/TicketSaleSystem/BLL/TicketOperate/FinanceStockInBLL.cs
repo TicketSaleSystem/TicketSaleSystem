@@ -82,20 +82,29 @@ namespace TSS_BLL.TicketOperate
                 // 获取可退的同类型票
                 DataTable dt = financeStockInDAL.GetTicketStockInBack(financeStockInEntity, userID, ref errorCode);
                 // 查询本次退票信息是否包含在内其中一条之内
-                string filterExpression = string.Format("FIN_TICKET_START >= '{0}' and FIN_TICKET_END <= '{1}'",
+                string filterExpression = string.Format("FIN_TICKET_START <= '{0}' and FIN_TICKET_END >= '{1}'",
                     financeStockInEntity.FIN_TICKET_START.Substring(2), financeStockInEntity.FIN_TICKET_END.Substring(2));
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     DataTable newDT = SpliceFinanceStockInBackData(dt); // 需先合并首尾相接的数据
-                    // 对比本次需保存的数据是否在这些数据段【内】，不交叉则返回true
+                    // 对比本次需保存的数据是否在这些数据段【内】，不存在之外则返回true
                     DataRow[] arrayDR = newDT.Select(filterExpression);
                     flag = (arrayDR.Length != 0);
+                    if (flag)
+                        flag = financeStockInDAL.SaveFinanceStockInBack(financeStockInEntity, ref errorCode);
+                    else
+                        errorCode = "MSG_003"; // 存在交叉数据，不得退这些票
                 }
-                flag = financeStockInDAL.SaveFinanceStockIn(financeStockInEntity, userID, ref errorCode);
+                else 
+                {
+                    // 此人无可退的票
+                    errorCode = "MSG_002";
+                }
             }
             catch (Exception ex)
             {
                 // 记录日志
+                flag = false;
             }
             return flag;
         }
@@ -118,7 +127,7 @@ namespace TSS_BLL.TicketOperate
             {
                 FIN_TICKET_START = dt.Rows[i - 1][0].ToString();
                 FIN_TICKET_END = dt.Rows[i - 1][1].ToString();
-                while ((Int32.Parse(dt.Rows[i - 1][1].ToString()) + 1) == Int32.Parse(dt.Rows[i][0].ToString())) 
+                while ((i != rowCount) && (Int32.Parse(dt.Rows[i - 1][1].ToString()) + 1) == Int32.Parse(dt.Rows[i][0].ToString())) 
                 {
                     i++;
                     FIN_TICKET_END = dt.Rows[i - 1][1].ToString();

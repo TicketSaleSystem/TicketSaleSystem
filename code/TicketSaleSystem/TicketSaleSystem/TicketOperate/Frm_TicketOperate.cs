@@ -92,6 +92,7 @@ namespace TicketSaleSystem.TicketOperate
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            bool flag = false;
             string errorCode = "";
             if (this.lookUpEdit1.EditValue == null || this.lookUpEdit1.EditValue.ToString() == "nulltext")
             {
@@ -108,8 +109,8 @@ namespace TicketSaleSystem.TicketOperate
             financeStockInEntity.FIN_OPERATE_ID = SystemInfo.UserID;
             financeStockInEntity.FIN_OPERATE_DATE = DateTime.Now;
             financeStockInEntity.FIN_TYPE = "0";
-            financeStockInBLL.SaveFinanceStockIn(financeStockInEntity, SystemInfo.UserID, ref errorCode);
-            if (!string.IsNullOrEmpty(errorCode))
+            flag = financeStockInBLL.SaveFinanceStockIn(financeStockInEntity, SystemInfo.UserID, ref errorCode);
+            if (!flag)
                 MessageBox.Show(errorCode);
             else
                 MessageBox.Show("操作成功！");
@@ -146,15 +147,22 @@ namespace TicketSaleSystem.TicketOperate
             financeStockInEntity.FIN_OPERATE_DATE = DateTime.Now;
             financeStockInEntity.FIN_TYPE = "1";
             flag = financeStockInBLL.SaveFinanceStockInBack(financeStockInEntity, SystemInfo.UserID, ref errorCode);
-            MessageBox.Show(errorCode);
+            if (!flag)
+                MessageBox.Show(errorCode);
+            else
+                MessageBox.Show("操作成功！");
         }
 
         private void txtQSHM_EditValueChanged(object sender, EventArgs e)
         {
+            string strQSHM = txtQSHM.Text;
+            string strZS = txtZS.Text;
+            strQSHM = string.IsNullOrEmpty(strQSHM) ? "XX00000000" : strQSHM;
+            strZS = string.IsNullOrEmpty(strZS) ? "0" : strZS;
             int qshm = 0;
-            Int32.TryParse(txtQSHM.Text.Substring(2), out qshm);
-            int zs = Int32.Parse(txtZS.Text);
-            txtZZHM.Text = txtQSHM.Text.Substring(0, 2) + (qshm + zs - 1).ToString("00000000");
+            Int32.TryParse(strQSHM.Substring(2), out qshm);
+            int zs = Int32.Parse(strZS);
+            txtZZHM.Text = strQSHM.Substring(0, 2) + (qshm + zs - 1).ToString("00000000");
         }
 
     }
