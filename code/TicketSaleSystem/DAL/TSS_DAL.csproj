@@ -43,6 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainFormDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketOperate\FinanceStockInDAL.cs" />
   </ItemGroup>
@@ -51,6 +52,9 @@
       <Project>{98d21bed-37b1-400b-85cb-704ce5ab6e45}</Project>
       <Name>ToolsHelper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SystemOperate\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

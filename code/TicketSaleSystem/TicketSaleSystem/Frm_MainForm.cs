@@ -17,12 +17,14 @@ using DevExpress.XtraTab;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList.Nodes;
 using ToolsHelper;
+using TSS_BLL;
 
 
 namespace TicketSaleSystem
 {
     public partial class Frm_MainForm : RibbonForm
     {
+        private MainFormBLL mainFormBLL = new MainFormBLL();
         private string FieldName = "COLNAME"; // 用于TreeList显示文字的列，设计界面右键单击RunDesign
         private int I_ImageCount = 0;
         private Frm_Login frm_Login = null;
@@ -32,7 +34,7 @@ namespace TicketSaleSystem
             InitializeComponent();
             InitStatus();
             InitSkinGallery();
-            BindTreeListData();
+            BindMainFormTreeList();
         }
 
         private void InitStatus()
@@ -133,28 +135,19 @@ namespace TicketSaleSystem
             }
         }
 
-        private void BindTreeListData()
+        /// <summary>
+        /// 获取树结构数据
+        /// </summary>
+        private void BindMainFormTreeList()
         {
             this.Cursor = Cursors.WaitCursor;
+            string errorCode = "";
             try
             {
-                // 获取树结构数据
-                string sqlStr = string.Format(@"
-                                                    SELECT
-                	                                     CONVERT(INT,SUBSTRING(t.DICT_ID,2,4)) AS ID
-                                                        ,t.DICT_NAME AS COLNAME
-                                                        ,CONVERT(INT,SUBSTRING(t.DICT_PID,2,4)) AS PID
-                                                    FROM
-                	                                    TSS_DICTIONARY T
-                                                    WHERE
-                	                                    T.DICT_TYPE = 'Modules'
-													AND
-														(CONVERT(INT,SUBSTRING(t.DICT_ID,2,4)) BETWEEN 200 AND 499)
-                                                    ORDER BY ID");
-                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr);
-                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                DataTable dt = mainFormBLL.BindMainFormTreeList(SystemInfo.UserID, ref errorCode);
+                if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataTable dtMenu = ds.Tables[0];
+                    DataTable dtMenu = dt;
                     treeList1.Nodes.Clear();
                     treeList1.DataSource = dtMenu;
                     treeList1.ParentFieldName = "PID";
