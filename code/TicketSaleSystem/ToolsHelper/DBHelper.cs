@@ -294,6 +294,16 @@ namespace ToolsHelper
         /// <param name="SQLStringList">多条SQL语句</param>        
         public void ExecuteSqlTran(ArrayList SQLStringList)
         {
+            ExecuteSqlTran(SQLStringList, -1);
+        }
+        /// <summary>
+        /// 执行多条SQL语句，实现数据库事务。
+        /// </summary>
+        /// <param name="SQLStringList">多条SQL语句</param>
+        /// <param name="EffectCounts">预计影响行数</param>
+        public void ExecuteSqlTran(ArrayList SQLStringList, int EffectCounts)
+        {
+            int counts = 0;
             using (IDbConnection iConn = GetConnection())
             {
                 iConn.Open();
@@ -311,10 +321,17 @@ namespace ToolsHelper
                                 if (strsql.Trim().Length > 1)
                                 {
                                     iCmd.CommandText = strsql;
-                                    iCmd.ExecuteNonQuery();
+                                    counts += iCmd.ExecuteNonQuery();
                                 }
                             }
-                            iDbTran.Commit();
+                            if (EffectCounts != -1 && EffectCounts != counts)
+                            {
+                                iDbTran.Rollback();
+                            }
+                            else
+                            {
+                                iDbTran.Commit();
+                            }
                         }
                         catch (System.Exception E)
                         {
@@ -329,9 +346,7 @@ namespace ToolsHelper
                             }
                         }
                     }
-
                 }
-
             }
         }
         /// <summary>

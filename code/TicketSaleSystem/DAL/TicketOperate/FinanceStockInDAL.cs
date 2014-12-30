@@ -113,32 +113,39 @@ namespace TSS_DAL.TicketOperate
         /// <summary>
         /// 查询同类型票据信息
         /// </summary>
-        /// <param name="financeStockInEntity">财务入库信息</param>
+        /// <param name="financeStockInEntity">将要保存的财务入库信息</param>
         /// <param name="errorCode">系统错误编码</param>
-        /// <returns>返回同类型票据信息</returns>
+        /// <returns>返回数据库中已存在的票据集合</returns>
         public DataTable GetTicketStockIn(FinanceStockInEntity financeStockInEntity, ref string errorCode)
         {
             DataTable dt = null;
-            if (financeStockInEntity == null) return dt;
+            if (financeStockInEntity == null)
+            {
+                errorCode = "ERROR_001";
+                return dt;
+            }
             try
             {
-                // 查询出开头为“**”的全部有效财务入库记录
+                // 查询出开头为“**”的全部有效票据记录
                 string sqlStr = string.Format(@"
                         SELECT
-                            SUBSTRING(T.FIN_TICKET_START, 3, LEN(T.FIN_TICKET_START)) as FIN_TICKET_START,
-	                        SUBSTRING(T.FIN_TICKET_END, 3, LEN(T.FIN_TICKET_START)) as FIN_TICKET_END
-                        FROM 
-                            TSS_FINANCIAL_IN T
+	                        T.TICKET_ID
+                        FROM
+	                        TSS_TICKET T
                         WHERE
-	                        T.FIN_TICKET_START LIKE '{0}%'
+	                        T.IS_DEL = '0'
                         AND
-	                        T.FIN_TYPE = '0'"
-                        , financeStockInEntity.FIN_TICKET_START.Substring(0, 2));
+	                        T.TICKET_ID LIKE '{0}%'
+                        AND
+	                        T.TICKET_ID BETWEEN '{1}' AND '{2}'"
+                        , financeStockInEntity.FIN_TICKET_START.Substring(0, 2)
+                        , financeStockInEntity.FIN_TICKET_START
+                        , financeStockInEntity.FIN_TICKET_END);
                 dt = dbHelper.ExecuteQuery(sqlStr);
             }
             catch (Exception ex) 
             {
-                errorCode = "ERROR_001";
+                errorCode = "ERROR_002";
             }
             return dt;
         }
@@ -150,81 +157,68 @@ namespace TSS_DAL.TicketOperate
         /// <param name="userID"></param>
         /// <param name="errorCode"></param>
         /// <returns></returns>
-        public bool SaveFinanceStockInBack(FinanceStockInEntity financeStockInEntity, ref string errorCode)
+        public bool SaveFinanceStockInBack(FinanceStockInEntity financeStockInEntity, string userID, ref string errorCode)
         {
             bool flag = true;
             ArrayList strListSQL = new ArrayList();
             try
             {
-                string sqlStr = string.Format(@"
+                string counts = dbHelper.GetSingle(string.Format(@"
+                        SELECT COUNT(*) AS COUNTS
+                        FROM TSS_TICKET
+                        WHERE IS_FOUT = '0' AND IS_DEL = '0'
+                        AND TICKET_ID LIKE '{0}%'
+                        AND TICKET_ID BETWEEN '{1}' AND '{2}'"
+                        , financeStockInEntity.FIN_TICKET_START.Substring(0, 2)
+                        , financeStockInEntity.FIN_TICKET_START
+                        , financeStockInEntity.FIN_TICKET_END)).ToString();
+                // 与预计影响行数相同则更新
+                if (financeStockInEntity.FIN_TICKET_COUNT.ToString().Equals(counts))
+                {
+                    string sqlStr = string.Format(@"
                         INSERT INTO TSS_FINANCIAL_IN(
                                 FIN_SUPPLY_ID, FIN_TICKET_START, FIN_TICKET_COUNT
                                 ,FIN_TICKET_END, FIN_TICKET_ITEM_ID, FIN_OPERATE_ID
                                 ,FIN_OPERATE_DATE, FIN_TYPE) 
                         VALUES (
-                                    '{0}', '{1}', '{2}'
+                                '{0}', '{1}', '{2}'
                                 ,'{3}', '{4}', '{5}'
                                 ,'{6}', '{7}')",
-                        financeStockInEntity.FIN_SUPPLY_ID,
-                        financeStockInEntity.FIN_TICKET_START,
-                        financeStockInEntity.FIN_TICKET_COUNT,
-                        financeStockInEntity.FIN_TICKET_END,
-                        financeStockInEntity.FIN_TICKET_ITEM_ID,
-                        financeStockInEntity.FIN_OPERATE_ID,
-                        financeStockInEntity.FIN_OPERATE_DATE,
-                        financeStockInEntity.FIN_TYPE);
-                strListSQL.Add(sqlStr);
-                sqlStr = string.Format(@"
+                            financeStockInEntity.FIN_SUPPLY_ID,
+                            financeStockInEntity.FIN_TICKET_START,
+                            financeStockInEntity.FIN_TICKET_COUNT,
+                            financeStockInEntity.FIN_TICKET_END,
+                            financeStockInEntity.FIN_TICKET_ITEM_ID,
+                            financeStockInEntity.FIN_OPERATE_ID,
+                            financeStockInEntity.FIN_OPERATE_DATE,
+                            financeStockInEntity.FIN_TYPE);
+                    strListSQL.Add(sqlStr);
+                    sqlStr = string.Format(@"
                         UPDATE TSS_TICKET
                         SET IS_DEL = '1'
                         WHERE IS_FOUT = '0' AND IS_DEL = '0'
                         AND TICKET_ID LIKE '{0}%' 
                         AND TICKET_ID BETWEEN '{1}' AND '{2}'"
-                        , financeStockInEntity.FIN_TICKET_START.Substring(0, 2)
-                        , financeStockInEntity.FIN_TICKET_START
-                        , financeStockInEntity.FIN_TICKET_END);
-                strListSQL.Add(sqlStr);
-                dbHelper.ExecuteSqlTran(strListSQL);
+                            , financeStockInEntity.FIN_TICKET_START.Substring(0, 2)
+                            , financeStockInEntity.FIN_TICKET_START
+                            , financeStockInEntity.FIN_TICKET_END);
+                    strListSQL.Add(sqlStr);
+                    dbHelper.ExecuteSqlTran(strListSQL);
+                }
+                else 
+                {
+                    // 存在交叉数据，不能退这些票
+                    flag = false;
+                    errorCode = "MSG_002";
+                }
             }
             catch (Exception ex)
             {
                 // 记录日志
                 flag = false;
-            }
-            return flag;
-        }
-
-        public DataTable GetTicketStockInBack(FinanceStockInEntity financeStockInEntity, string userID, ref string errorCode)
-        {
-            DataTable dt = null;
-            if (financeStockInEntity == null) return dt;
-            try
-            {
-                // 查询出开头为“**”的对应有效财务入库记录
-                string sqlStr = string.Format(@"
-                        SELECT
-                            SUBSTRING(T.FIN_TICKET_START, 3, LEN(T.FIN_TICKET_START)) as FIN_TICKET_START,
-	                        SUBSTRING(T.FIN_TICKET_END, 3, LEN(T.FIN_TICKET_START)) as FIN_TICKET_END
-                        FROM 
-                            TSS_FINANCIAL_IN T
-                        WHERE
-	                        T.FIN_TICKET_START LIKE '{0}%'
-                        AND
-	                        T.FIN_TYPE = '0'
-                        AND
-                            T.FIN_TICKET_ITEM_ID = '{1}'
-                        AND
-                            T.FIN_OPERATE_ID = '{2}'"
-                        , financeStockInEntity.FIN_TICKET_START.Substring(0, 2)
-                        , financeStockInEntity.FIN_TICKET_ITEM_ID
-                        , userID);
-                dt = dbHelper.ExecuteQuery(sqlStr);
-            }
-            catch (Exception ex)
-            {
                 errorCode = "ERROR_001";
             }
-            return dt;
+            return flag;
         }
     }
 }

@@ -35,7 +35,11 @@ namespace TSS_BLL.TicketOperate
         public bool SaveFinanceStockIn(FinanceStockInEntity financeStockInEntity, string userID, ref string errorCode)
         {
             bool flag = false;
-            if (financeStockInEntity == null) return flag;
+            if (financeStockInEntity == null) 
+            {
+                errorCode = "ERROR_BLL_001";
+                return flag;
+            }
             // 查询数据段是否存在交叉
             string filterExpression = string.Format("(FIN_TICKET_START <= '{0}' and FIN_TICKET_END >= '{0}') or (FIN_TICKET_START <= '{1}' and FIN_TICKET_END >= '{1}')",
                 financeStockInEntity.FIN_TICKET_START.Substring(2), financeStockInEntity.FIN_TICKET_END.Substring(2));
@@ -45,17 +49,15 @@ namespace TSS_BLL.TicketOperate
                 DataTable dt = financeStockInDAL.GetTicketStockIn(financeStockInEntity, ref errorCode);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    // 对比本次需保存的数据是否在这些数据段【外】，不交叉则返回true
-                    DataRow[] arrayDR = dt.Select(filterExpression);
-                    flag = (arrayDR.Length == 0);
-                    if (flag)
-                        financeStockInDAL.SaveFinanceStockIn(financeStockInEntity, userID, ref errorCode);
-                    else
-                        errorCode = "MSG_001";
+                    errorCode = "MSG_001"; // 已存在相关票据不能再次入库
                 }
                 else if (dt != null && dt.Rows.Count == 0)
                 {
                     flag = financeStockInDAL.SaveFinanceStockIn(financeStockInEntity, userID, ref errorCode);
+                }
+                else
+                {
+                    // errorCode 在 DAL 的 GetTicketStockIn 方法内被赋值
                 }
             }
             catch (Exception ex)
@@ -76,30 +78,14 @@ namespace TSS_BLL.TicketOperate
         public bool SaveFinanceStockInBack(FinanceStockInEntity financeStockInEntity, string userID, ref string errorCode)
         {
             bool flag = false;
-            if (financeStockInEntity == null) return flag;
+            if (financeStockInEntity == null)
+            {
+                errorCode = "ERROR_BLL_001";
+                return flag;
+            }
             try
             {
-                // 获取可退的同类型票
-                DataTable dt = financeStockInDAL.GetTicketStockInBack(financeStockInEntity, userID, ref errorCode);
-                // 查询本次退票信息是否包含在内其中一条之内
-                string filterExpression = string.Format("FIN_TICKET_START <= '{0}' and FIN_TICKET_END >= '{1}'",
-                    financeStockInEntity.FIN_TICKET_START.Substring(2), financeStockInEntity.FIN_TICKET_END.Substring(2));
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    DataTable newDT = SpliceFinanceStockInBackData(dt); // 需先合并首尾相接的数据
-                    // 对比本次需保存的数据是否在这些数据段【内】，不存在之外则返回true
-                    DataRow[] arrayDR = newDT.Select(filterExpression);
-                    flag = (arrayDR.Length != 0);
-                    if (flag)
-                        flag = financeStockInDAL.SaveFinanceStockInBack(financeStockInEntity, ref errorCode);
-                    else
-                        errorCode = "MSG_003"; // 存在交叉数据，不得退这些票
-                }
-                else 
-                {
-                    // 此人无可退的票
-                    errorCode = "MSG_002";
-                }
+                flag = financeStockInDAL.SaveFinanceStockInBack(financeStockInEntity, userID, ref errorCode);
             }
             catch (Exception ex)
             {
@@ -107,38 +93,6 @@ namespace TSS_BLL.TicketOperate
                 flag = false;
             }
             return flag;
-        }
-        
-        /// <summary>
-        /// 拼接首尾相接的数据
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <returns></returns>
-        private DataTable SpliceFinanceStockInBackData(DataTable dt)
-        {
-            int rowCount = dt.Rows.Count;
-            if(rowCount <= 1)
-                return dt;
-
-            DataTable newDT = dt.Clone();
-            string FIN_TICKET_START = "0";
-            string FIN_TICKET_END = "0";
-            for (int i = 1; i <= rowCount; i++)
-            {
-                FIN_TICKET_START = dt.Rows[i - 1][0].ToString();
-                FIN_TICKET_END = dt.Rows[i - 1][1].ToString();
-                while ((i != rowCount) && (Int32.Parse(dt.Rows[i - 1][1].ToString()) + 1) == Int32.Parse(dt.Rows[i][0].ToString())) 
-                {
-                    i++;
-                    FIN_TICKET_END = dt.Rows[i - 1][1].ToString();
-                }
-                // 添加行
-                DataRow newDR = newDT.NewRow();
-                newDR[0] = FIN_TICKET_START;
-                newDR[1] = FIN_TICKET_END;
-                newDT.Rows.Add(newDR);
-			}
-            return newDT;
         }
     }
 }

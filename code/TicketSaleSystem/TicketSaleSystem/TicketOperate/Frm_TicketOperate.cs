@@ -12,6 +12,8 @@ using TSS_Model;
 using TSS_Model.TicketOperate;
 using TSS_BLL.TicketOperate;
 using ToolsHelper;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace TicketSaleSystem.TicketOperate
 {
@@ -165,5 +167,34 @@ namespace TicketSaleSystem.TicketOperate
             txtZZHM.Text = strQSHM.Substring(0, 2) + (qshm + zs - 1).ToString("00000000");
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //string sql = "select fid,fname from dual";
+
+            //DataTable dt = DALUse.Query(sql).Tables[0];
+
+            //gridControl1.DataSource = dt;
+        }
+        private void gridView1_CustomDrawEmptyForeground(object sender, CustomDrawEventArgs e)
+        {
+            ColumnView columnView = sender as ColumnView;
+            BindingSource bindingSource = this.gridView1.DataSource as BindingSource;
+            if (bindingSource.Count == 0)
+            {
+                string str = "没有查询到数据!";
+                Font f = new Font("宋体", 10, FontStyle.Bold);
+                Rectangle r = new Rectangle(e.Bounds.Top + 5, e.Bounds.Left + 5, e.Bounds.Right - 5, e.Bounds.Height - 5);
+                e.Graphics.DrawString(str, f, Brushes.Black, r);
+            }
+        }
+        
+        //显示行的序号 
+        private void gridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+             if (e.Info.IsRowIndicator && e.RowHandle>=0)
+             {
+                  e.Info.DisplayText = (e.RowHandle + 1).ToString();
+             }
+        }
     }
 }
