@@ -169,11 +169,16 @@ namespace TicketSaleSystem.TicketOperate
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //string sql = "select fid,fname from dual";
-
-            //DataTable dt = DALUse.Query(sql).Tables[0];
-
-            //gridControl1.DataSource = dt;
+            try
+            {
+                string sqlStr = "select * from TSS_FINANCIAL_IN";
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr);
+                gridControl1.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void gridView1_CustomDrawEmptyForeground(object sender, CustomDrawEventArgs e)
         {
