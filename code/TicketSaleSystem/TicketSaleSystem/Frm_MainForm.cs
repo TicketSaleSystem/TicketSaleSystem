@@ -105,7 +105,7 @@ namespace TicketSaleSystem
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
-            TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
+            TicketSaleSystem.TicketOperate.Frm_FinanceStockIn frm = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn();
             UIHelper.AddUserControl(xtraTabControl1, frm, "财务出库", "财务出库");
         }
 
@@ -130,9 +130,63 @@ namespace TicketSaleSystem
             if (clickedNode != null && !clickedNode.HasChildren)
             {
                 string disPlayText = clickedNode.GetDisplayText(FieldName); // 显示的汉字，目前无法取到绑定时的数字
-                TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
-                UIHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
+                Object obj = GetDisplayObject(disPlayText);
+                if (obj != null)
+                    UIHelper.AddUserControl(xtraTabControl1, obj, disPlayText, disPlayText);
             }
+        }
+
+        /// <summary>
+        /// 根据DisPlayText打开相应标签页内容
+        /// </summary>
+        /// <param name="DisPlayText"></param>
+        /// <returns></returns>
+        private object GetDisplayObject(string DisPlayText)
+        {
+            Object obj = null;
+            if (string.IsNullOrEmpty(DisPlayText))
+                return obj;
+
+            switch(DisPlayText)
+            {
+                case "门票操作": break;
+                case "财务入库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "财务出库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockOut(); break;
+                case "门票出库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "售票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "退票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "PDA销票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "人工销票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "异常退票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "出库门票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "销售查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "个人结存": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "团体购票查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "高级查询": break;
+                case "门票状态查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "门票综合查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "游客查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "IC卡统计": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "销售汇总": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "进销汇总": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "时段汇总": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "门票检入查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "IC卡检入查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "销售明细": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "缴款明细": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "报表查询": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "管理": break;
+                case "密码修改": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "售票员结算": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "门票项目": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "人员管理": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "团体管理": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "使用时间管理": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                default:
+                    // Write Error Log
+                    break;
+            }
+            return obj;
         }
 
         /// <summary>
@@ -186,7 +240,7 @@ namespace TicketSaleSystem
             // 关于 弹窗
         }
 
-        // 点击菜单大类是刷新对应树结构
+        // 点击菜单大类时刷新对应树结构
         private void RefreshTreeList(string nodeName)
         {
             if (nodeName == null)

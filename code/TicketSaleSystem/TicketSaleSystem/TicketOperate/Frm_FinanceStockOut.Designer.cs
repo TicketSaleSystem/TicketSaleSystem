@@ -1,6 +1,6 @@
 ﻿namespace TicketSaleSystem.TicketOperate
 {
-    partial class Frm_TicketOperate
+    partial class Frm_FinanceStockOut
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_TicketOperate));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_FinanceStockOut));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.txtQSHM = new DevExpress.XtraEditors.TextEdit();
             this.txtZS = new DevExpress.XtraEditors.TextEdit();
             this.txtZZHM = new DevExpress.XtraEditors.TextEdit();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnTP = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHK = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtQSHM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtZS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtZZHM.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -63,9 +59,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 14);
+            this.label1.Size = new System.Drawing.Size(60, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "供票人员";
+            this.label1.Text = "领/退人员";
             // 
             // label2
             // 
@@ -94,15 +90,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "终止号码";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 14);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "门票项目";
-            // 
             // simpleButton1
             // 
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
@@ -110,7 +97,7 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(118, 53);
             this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "入   库";
+            this.simpleButton1.Text = "出   库";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
@@ -151,7 +138,7 @@
             this.txtZS.Properties.Appearance.Options.UseBackColor = true;
             this.txtZS.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtZS.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtZS.Properties.MaxLength = 6;
+            this.txtZS.Properties.MaxLength = 5;
             this.txtZS.Size = new System.Drawing.Size(79, 20);
             this.txtZS.TabIndex = 2;
             this.txtZS.EditValueChanged += new System.EventHandler(this.txtQSHM_EditValueChanged);
@@ -167,16 +154,6 @@
             this.txtZZHM.Properties.Appearance.Options.UseBackColor = true;
             this.txtZZHM.Size = new System.Drawing.Size(124, 20);
             this.txtZZHM.TabIndex = 3;
-            // 
-            // lookUpEdit1
-            // 
-            this.lookUpEdit1.EditValue = "";
-            this.lookUpEdit1.Location = new System.Drawing.Point(291, 32);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Size = new System.Drawing.Size(286, 20);
-            this.lookUpEdit1.TabIndex = 4;
             // 
             // lookUpEdit2
             // 
@@ -217,25 +194,15 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "*";
             // 
-            // label9
+            // btnHK
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(583, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 14);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "*";
-            // 
-            // btnTP
-            // 
-            this.btnTP.Image = ((System.Drawing.Image)(resources.GetObject("btnTP.Image")));
-            this.btnTP.Location = new System.Drawing.Point(636, 102);
-            this.btnTP.Name = "btnTP";
-            this.btnTP.Size = new System.Drawing.Size(118, 53);
-            this.btnTP.TabIndex = 7;
-            this.btnTP.Text = "退   票";
-            this.btnTP.Click += new System.EventHandler(this.btnTP_Click);
+            this.btnHK.Image = ((System.Drawing.Image)(resources.GetObject("btnHK.Image")));
+            this.btnHK.Location = new System.Drawing.Point(636, 102);
+            this.btnHK.Name = "btnHK";
+            this.btnHK.Size = new System.Drawing.Size(118, 53);
+            this.btnHK.TabIndex = 7;
+            this.btnHK.Text = "回   库";
+            this.btnHK.Click += new System.EventHandler(this.btnHK_Click);
             // 
             // gridControl1
             // 
@@ -260,6 +227,7 @@
             this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // btnSearch
             // 
@@ -271,7 +239,7 @@
             this.btnSearch.Text = "查   询";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // Frm_TicketOperate
+            // Frm_TicketOperateOut
             // 
             this.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.Appearance.Options.UseBackColor = true;
@@ -279,31 +247,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TicketSaleSystem.Properties.Resources.逐墨;
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lookUpEdit2);
-            this.Controls.Add(this.lookUpEdit1);
             this.Controls.Add(this.txtZZHM);
             this.Controls.Add(this.txtZS);
             this.Controls.Add(this.txtQSHM);
             this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.btnTP);
+            this.Controls.Add(this.btnHK);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "Frm_TicketOperate";
+            this.Name = "Frm_TicketOperateOut";
             this.Size = new System.Drawing.Size(772, 515);
             ((System.ComponentModel.ISupportInitialize)(this.txtQSHM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtZS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtZZHM.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -318,19 +282,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.TextEdit txtQSHM;
         private DevExpress.XtraEditors.TextEdit txtZS;
         private DevExpress.XtraEditors.TextEdit txtZZHM;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private DevExpress.XtraEditors.SimpleButton btnTP;
+        private DevExpress.XtraEditors.SimpleButton btnHK;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton btnSearch;

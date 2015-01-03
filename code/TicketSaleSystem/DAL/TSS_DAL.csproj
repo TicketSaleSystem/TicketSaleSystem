@@ -46,6 +46,7 @@
     <Compile Include="MainFormDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketOperate\FinanceStockInDAL.cs" />
+    <Compile Include="TicketOperate\FinanceStockOutDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ToolsHelper\ToolsHelper.csproj">

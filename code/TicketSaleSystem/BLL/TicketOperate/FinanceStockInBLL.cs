@@ -40,9 +40,6 @@ namespace TSS_BLL.TicketOperate
                 errorCode = "ERROR_BLL_001";
                 return flag;
             }
-            // 查询数据段是否存在交叉
-            string filterExpression = string.Format("(FIN_TICKET_START <= '{0}' and FIN_TICKET_END >= '{0}') or (FIN_TICKET_START <= '{1}' and FIN_TICKET_END >= '{1}')",
-                financeStockInEntity.FIN_TICKET_START.Substring(2), financeStockInEntity.FIN_TICKET_END.Substring(2));
             try
             {
                 // 无数据的具体原因分两种， 1： SQL查询出现系统级别错误， 2：存在票号数据交叉，不能保存

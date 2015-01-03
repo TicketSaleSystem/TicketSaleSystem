@@ -91,7 +91,7 @@ namespace TicketSaleSystem
             if (!clickedNode.HasChildren)
             {
                 string disPlayText = clickedNode.GetDisplayText("COLNAME"); // 显示的汉字，目前无法取到绑定时的数字
-                TicketSaleSystem.TicketOperate.Frm_TicketOperate frm = new TicketSaleSystem.TicketOperate.Frm_TicketOperate();
+                TicketSaleSystem.TicketOperate.Frm_FinanceStockIn frm = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn();
                 UIHelper.AddUserControl(xtraTabControl1, frm, disPlayText, disPlayText);
             }
         }

@@ -17,40 +17,42 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace TicketSaleSystem.TicketOperate
 {
-    public partial class Frm_TicketOperate : DevExpress.XtraEditors.XtraUserControl
+    /// <summary>
+    /// 财务出/回库操作（财务<->售票室管理员）
+    /// </summary>
+    public partial class Frm_FinanceStockOut : DevExpress.XtraEditors.XtraUserControl
     {
-        private FinanceStockInBLL financeStockInBLL = new FinanceStockInBLL();
+        private FinanceStockOutBLL financeStockOutBLL = new FinanceStockOutBLL();
 
-        public Frm_TicketOperate()
+        public Frm_FinanceStockOut()
         {
             InitializeComponent();
-            BindTicketSupplyCombox();
-            BindTicketItemCombox();
+            BindTicketLeadBackCombox();
         }
 
         /// <summary>
-        /// 绑定供票人下拉框
+        /// 绑定领/退人下拉框
         /// </summary>
-        private void BindTicketSupplyCombox()
+        private void BindTicketLeadBackCombox()
         {
             string errorCode = "";
             try
             {
-                DataTable gpry_dt = financeStockInBLL.BindTicketSupplyCombox(ref errorCode);
+                DataTable dt = financeStockOutBLL.BindTicketLeadBackCombox(ref errorCode);
                 if (!string.IsNullOrEmpty(errorCode))
                 {
                     MessageBox.Show("错误代码：" + errorCode);
                 }
                 else
                 {
-                    if (gpry_dt.Rows.Count > 0)
+                    if (dt.Rows.Count > 0)
                     {
                         this.lookUpEdit2.EditValue = "ID";
                         this.lookUpEdit2.Properties.ValueMember = "ID";
                         this.lookUpEdit2.Properties.DisplayMember = "NAME";
-                        this.lookUpEdit2.Properties.DataSource = gpry_dt;
+                        this.lookUpEdit2.Properties.DataSource = dt;
                         this.lookUpEdit2.Properties.ShowHeader = false;
-                        this.lookUpEdit2.EditValue = "9997";
+                        // this.lookUpEdit2.EditValue = "9997";
                     }
                 }
             }
@@ -61,57 +63,31 @@ namespace TicketSaleSystem.TicketOperate
         }
 
         /// <summary>
-        /// 绑定门票项目下拉框
+        /// 财务出库
+        /// INSERT      TSS_FINANCIAL_OUT   FOUT_TYPE = 0
+        /// UPDATE     TSS_TICKET        IS_FOUT=1
         /// </summary>
-        private void BindTicketItemCombox()
-        {
-            string errorCode = "";
-            try
-            {
-                DataTable dt = financeStockInBLL.BindTicketItemCombox(ref errorCode);
-                if (!string.IsNullOrEmpty(errorCode))
-                {
-                    MessageBox.Show("错误代码：" + errorCode);
-                }
-                else
-                {
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        this.lookUpEdit1.EditValue = "ID";
-                        this.lookUpEdit1.Properties.ValueMember = "ID";
-                        this.lookUpEdit1.Properties.DisplayMember = "NAME";
-                        this.lookUpEdit1.Properties.DataSource = dt;
-                        this.lookUpEdit1.Properties.ShowHeader = false;
-                        this.lookUpEdit1.EditValue = 2;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // 记录日志
-            }
-        }
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             bool flag = false;
             string errorCode = "";
-            if (this.lookUpEdit1.EditValue == null || this.lookUpEdit1.EditValue.ToString() == "nulltext")
+            if (this.lookUpEdit2.EditValue == null || this.lookUpEdit2.EditValue.ToString() == "nulltext")
             {
                 //提示信息,说明未选择下拉框
                 MessageBox.Show("带 * 为必填项！");
                 return;
             }
-            FinanceStockInEntity financeStockInEntity = new FinanceStockInEntity();
-            financeStockInEntity.FIN_SUPPLY_ID = this.lookUpEdit2.EditValue.ToString();
-            financeStockInEntity.FIN_TICKET_START = txtQSHM.Text;
-            financeStockInEntity.FIN_TICKET_COUNT = Int32.Parse(txtZS.Text);
-            financeStockInEntity.FIN_TICKET_END = txtZZHM.Text;
-            financeStockInEntity.FIN_TICKET_ITEM_ID = this.lookUpEdit1.EditValue.ToString();
-            financeStockInEntity.FIN_OPERATE_ID = SystemInfo.UserID;
-            financeStockInEntity.FIN_OPERATE_DATE = DateTime.Now;
-            financeStockInEntity.FIN_TYPE = "0";
-            flag = financeStockInBLL.SaveFinanceStockIn(financeStockInEntity, SystemInfo.UserID, ref errorCode);
+            FinanceStockOutEntity financeStockOutEntity = new FinanceStockOutEntity();
+            financeStockOutEntity.FOUT_LEADBACK_ID = this.lookUpEdit2.EditValue.ToString();
+            financeStockOutEntity.FOUT_TICKET_START = txtQSHM.Text;
+            financeStockOutEntity.FOUT_TICKET_COUNT = Int32.Parse(txtZS.Text);
+            financeStockOutEntity.FOUT_TICKET_END = txtZZHM.Text;
+            financeStockOutEntity.FOUT_OPERATE_ID = SystemInfo.UserID;
+            financeStockOutEntity.FOUT_OPERATE_DATE = DateTime.Now;
+            financeStockOutEntity.FOUT_TYPE = "0";
+            flag = financeStockOutBLL.SaveFinanceStockOut(financeStockOutEntity, ref errorCode);
             if (!flag)
                 MessageBox.Show(errorCode);
             else
@@ -121,34 +97,38 @@ namespace TicketSaleSystem.TicketOperate
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             // 重置界面参数
-            this.lookUpEdit2.EditValue = "9997";
+            //this.lookUpEdit2.EditValue = "9997";
             txtQSHM.Text = "JA00000001";
             txtZS.Text = "1000";
             txtZZHM.Text = "JA00001000";
-            lookUpEdit1.EditValue = "2";
         }
 
-        private void btnTP_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 财务回库
+        /// INSERT      TSS_FINANCIAL_OUT   FOUT_TYPE = 1
+        /// UPDATE     TSS_TICKET        IS_FOUT=2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnHK_Click(object sender, EventArgs e)
         {
             bool flag = false;
             string errorCode = "";
-            // 退票（更新IS_DEL为1）
-            if (this.lookUpEdit1.EditValue == null || this.lookUpEdit1.EditValue.ToString() == "nulltext")
+            if (this.lookUpEdit2.EditValue == null || this.lookUpEdit2.EditValue.ToString() == "nulltext")
             {
                 //提示信息,说明未选择下拉框
                 MessageBox.Show("带 * 为必填项！");
                 return;
             }
-            FinanceStockInEntity financeStockInEntity = new FinanceStockInEntity();
-            financeStockInEntity.FIN_SUPPLY_ID = this.lookUpEdit2.EditValue.ToString();
-            financeStockInEntity.FIN_TICKET_START = txtQSHM.Text;
-            financeStockInEntity.FIN_TICKET_COUNT = Int32.Parse(txtZS.Text);
-            financeStockInEntity.FIN_TICKET_END = txtZZHM.Text;
-            financeStockInEntity.FIN_TICKET_ITEM_ID = this.lookUpEdit1.EditValue.ToString();
-            financeStockInEntity.FIN_OPERATE_ID = SystemInfo.UserID;
-            financeStockInEntity.FIN_OPERATE_DATE = DateTime.Now;
-            financeStockInEntity.FIN_TYPE = "1";
-            flag = financeStockInBLL.SaveFinanceStockInBack(financeStockInEntity, SystemInfo.UserID, ref errorCode);
+            FinanceStockOutEntity financeStockOutEntity = new FinanceStockOutEntity();
+            financeStockOutEntity.FOUT_LEADBACK_ID= this.lookUpEdit2.EditValue.ToString();
+            financeStockOutEntity.FOUT_TICKET_START = txtQSHM.Text;
+            financeStockOutEntity.FOUT_TICKET_COUNT = Int32.Parse(txtZS.Text);
+            financeStockOutEntity.FOUT_TICKET_END = txtZZHM.Text;
+            financeStockOutEntity.FOUT_OPERATE_ID = SystemInfo.UserID;
+            financeStockOutEntity.FOUT_OPERATE_DATE = DateTime.Now;
+            financeStockOutEntity.FOUT_TYPE = "1";
+            flag = financeStockOutBLL.SaveFinanceStockOutBack(financeStockOutEntity, ref errorCode);
             if (!flag)
                 MessageBox.Show(errorCode);
             else
@@ -171,7 +151,7 @@ namespace TicketSaleSystem.TicketOperate
         {
             try
             {
-                string sqlStr = "select * from TSS_FINANCIAL_IN";
+                string sqlStr = "select * from TSS_FINANCIAL_OUT";
                 DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConStr, CommandType.Text, sqlStr);
                 gridControl1.DataSource = ds.Tables[0];
             }

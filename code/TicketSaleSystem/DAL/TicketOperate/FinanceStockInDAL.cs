@@ -84,6 +84,8 @@ namespace TSS_DAL.TicketOperate
                     dataRow["TICKET_ITEM_ID"] = financeStockInEntity.FIN_TICKET_ITEM_ID;
                     dataRow["TICKET_FIN_USER_ID"] = userID;
                     dataRow["TICKET_FIN_DATE"] = time;
+                    dataRow["TICKET_FOUT_USER_ID"] = DBNull.Value;
+                    dataRow["TICKET_FOUT_DATE"] = DBNull.Value;
                     dataRow["TICKET_OUT_USER_ID"] = DBNull.Value;
                     dataRow["TICKET_OUT_DATE"] = DBNull.Value;
                     dataRow["IS_FOUT"] = "0";
