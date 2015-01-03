@@ -152,7 +152,7 @@ namespace TicketSaleSystem
                 case "门票操作": break;
                 case "财务入库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
                 case "财务出库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockOut(); break;
-                case "门票出库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "门票出库": obj = new TicketSaleSystem.TicketOperate.Frm_TicketOut(); break;
                 case "售票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
                 case "退票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
                 case "PDA销票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;

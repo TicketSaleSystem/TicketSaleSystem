@@ -50,6 +50,7 @@
     <Compile Include="MainFormBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketOperate\FinanceStockInBLL.cs" />
+    <Compile Include="TicketOperate\TicketOutBLL.cs" />
     <Compile Include="TicketOperate\FinanceStockOutBLL.cs" />
   </ItemGroup>
   <ItemGroup>

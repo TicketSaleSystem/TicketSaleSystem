@@ -5,6 +5,9 @@ using System.Text;
 
 namespace TSS_Model.TicketOperate
 {
+    /// <summary>
+    /// 财务出库实体类
+    /// </summary>
     public class FinanceStockOutEntity
     {
         private string fout_leadback_id;

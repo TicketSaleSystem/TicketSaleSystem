@@ -42,6 +42,7 @@ namespace TSS_DAL.TicketOperate
             catch (Exception ex)
             {
                 // 记录日志
+                errorCode = "ERROR_001";
             }
             return dt;
         }
@@ -86,8 +87,8 @@ namespace TSS_DAL.TicketOperate
                     dataRow["TICKET_FIN_DATE"] = time;
                     dataRow["TICKET_FOUT_USER_ID"] = DBNull.Value;
                     dataRow["TICKET_FOUT_DATE"] = DBNull.Value;
-                    dataRow["TICKET_OUT_USER_ID"] = DBNull.Value;
-                    dataRow["TICKET_OUT_DATE"] = DBNull.Value;
+                    dataRow["TICKET_TOUT_USER_ID"] = DBNull.Value;
+                    dataRow["TICKET_TOUT_DATE"] = DBNull.Value;
                     dataRow["IS_FOUT"] = "0";
                     dataRow["IS_READY_SALE"] = "0";
                     dataRow["IS_SALE"] = "0";
@@ -108,6 +109,7 @@ namespace TSS_DAL.TicketOperate
             catch (Exception ex)
             {
                 // 记录日志
+                errorCode = "ERROR_001";
             }
             return flag;
         }
