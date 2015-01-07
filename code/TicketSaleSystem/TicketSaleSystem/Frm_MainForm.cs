@@ -49,15 +49,17 @@ namespace TicketSaleSystem
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
 
+        #region 登录
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             Frm_Login frm_login = new Frm_Login();
             frm_login.ShowDialog();
         }
+        #endregion
 
+        #region 注销
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            // 注销
             try
             {
                 MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
@@ -84,7 +86,9 @@ namespace TicketSaleSystem
                 MessageBox.Show("Log写入失败：" + ex.Message);
             }
         }
+        #endregion
 
+        #region 退出
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             // 退出
@@ -102,12 +106,7 @@ namespace TicketSaleSystem
                 MessageBox.Show("Log写入失败：" + ex.Message);
             }
         }
-
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            TicketSaleSystem.TicketOperate.Frm_FinanceStockIn frm = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn();
-            UIHelper.AddUserControl(xtraTabControl1, frm, "财务出库", "财务出库");
-        }
+        #endregion
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
@@ -153,7 +152,7 @@ namespace TicketSaleSystem
                 case "财务入库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
                 case "财务出库": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockOut(); break;
                 case "门票出库": obj = new TicketSaleSystem.TicketOperate.Frm_TicketOut(); break;
-                case "售票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
+                case "售票": obj = new TicketSaleSystem.TicketOperate.Frm_Sale(); break;
                 case "退票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
                 case "PDA销票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
                 case "人工销票": obj = new TicketSaleSystem.TicketOperate.Frm_FinanceStockIn(); break;
@@ -206,13 +205,14 @@ namespace TicketSaleSystem
                     treeList1.DataSource = dtMenu;
                     treeList1.ParentFieldName = "PID";
                     treeList1.KeyFieldName = "ID";
+                    treeList1.ExpandAll();
                 }
-                treeList1.ExpandAll();
             }
             catch (Exception ex)
             {
                 // Error
                 LogFile.WriteLine("BindTreeListData Error: " + ex.Message);
+                MessageBox.Show("加载树数据时发生错误！错误代码：" + errorCode);
             }
             this.Cursor = Cursors.Default;
         }
