@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gc_PreSaleList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label10 = new System.Windows.Forms.Label();
             this.l_jyh = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.txt_rs = new DevExpress.XtraEditors.TextEdit();
             this.txt_zs = new DevExpress.XtraEditors.TextEdit();
             this.txt_mptm = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_PreSale = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_SearchStatus = new DevExpress.XtraEditors.SimpleButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,21 +64,21 @@
             this.lue_kyd = new DevExpress.XtraEditors.LookUpEdit();
             this.txt_ttmc = new DevExpress.XtraEditors.TextEdit();
             this.txt_zjhm = new DevExpress.XtraEditors.TextEdit();
-            this.txt_zjlx = new DevExpress.XtraEditors.TextEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Add = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_ReWrite = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.de_Trade = new DevExpress.XtraEditors.DateEdit();
             this.label20 = new System.Windows.Forms.Label();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gc_TradeList = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btn_sale_search = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            this.btn_SearchHistory = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_zjlx = new DevExpress.XtraEditors.LookUpEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_PreSaleList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ssk.Properties)).BeginInit();
             this.panel1.SuspendLayout();
@@ -90,30 +90,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.lue_kyd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ttmc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_zjhm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_zjlx.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Trade.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Trade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_TradeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_zjlx.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // gc_PreSaleList
             // 
-            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl1.Location = new System.Drawing.Point(3, 43);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(449, 145);
-            this.gridControl1.TabIndex = 10;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_PreSaleList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gc_PreSaleList.Location = new System.Drawing.Point(3, 43);
+            this.gc_PreSaleList.MainView = this.gridView1;
+            this.gc_PreSaleList.Name = "gc_PreSaleList";
+            this.gc_PreSaleList.Size = new System.Drawing.Size(449, 145);
+            this.gc_PreSaleList.TabIndex = 10;
+            this.gc_PreSaleList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gc_PreSaleList;
             this.gridView1.IndicatorWidth = 40;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -152,18 +152,19 @@
             this.btn_Sale.Appearance.ForeColor = System.Drawing.Color.Olive;
             this.btn_Sale.Appearance.Options.UseFont = true;
             this.btn_Sale.Appearance.Options.UseForeColor = true;
-            this.btn_Sale.Location = new System.Drawing.Point(51, 213);
+            this.btn_Sale.Location = new System.Drawing.Point(51, 209);
             this.btn_Sale.Name = "btn_Sale";
             this.btn_Sale.Size = new System.Drawing.Size(75, 38);
             this.btn_Sale.TabIndex = 11;
             this.btn_Sale.Text = "售  票";
+            this.btn_Sale.Click += new System.EventHandler(this.btn_Sale_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 192);
+            this.label1.Location = new System.Drawing.Point(3, 191);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 18);
             this.label1.TabIndex = 13;
@@ -174,7 +175,7 @@
             this.txt_ssk.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_ssk.Location = new System.Drawing.Point(222, 189);
             this.txt_ssk.Name = "txt_ssk";
-            this.txt_ssk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.txt_ssk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
             this.txt_ssk.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
             this.txt_ssk.Properties.Appearance.Options.UseFont = true;
             this.txt_ssk.Properties.Appearance.Options.UseForeColor = true;
@@ -182,7 +183,7 @@
             this.txt_ssk.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txt_ssk.Properties.MaxLength = 6;
             this.txt_ssk.Properties.NullText = "0.00";
-            this.txt_ssk.Size = new System.Drawing.Size(93, 22);
+            this.txt_ssk.Size = new System.Drawing.Size(93, 24);
             this.txt_ssk.TabIndex = 14;
             // 
             // label2
@@ -190,7 +191,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(159, 192);
+            this.label2.Location = new System.Drawing.Point(159, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 18);
             this.label2.TabIndex = 13;
@@ -201,7 +202,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(348, 192);
+            this.label3.Location = new System.Drawing.Point(348, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 18);
             this.label3.TabIndex = 13;
@@ -213,7 +214,7 @@
             this.l_skhj.AutoSize = true;
             this.l_skhj.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.l_skhj.ForeColor = System.Drawing.Color.Red;
-            this.l_skhj.Location = new System.Drawing.Point(87, 192);
+            this.l_skhj.Location = new System.Drawing.Point(87, 189);
             this.l_skhj.Name = "l_skhj";
             this.l_skhj.Size = new System.Drawing.Size(39, 17);
             this.l_skhj.TabIndex = 15;
@@ -225,7 +226,7 @@
             this.l_zl.AutoSize = true;
             this.l_zl.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.l_zl.ForeColor = System.Drawing.Color.Red;
-            this.l_zl.Location = new System.Drawing.Point(398, 192);
+            this.l_zl.Location = new System.Drawing.Point(398, 189);
             this.l_zl.Name = "l_zl";
             this.l_zl.Size = new System.Drawing.Size(39, 17);
             this.l_zl.TabIndex = 15;
@@ -237,11 +238,12 @@
             this.btn_Clear.Appearance.ForeColor = System.Drawing.Color.Olive;
             this.btn_Clear.Appearance.Options.UseFont = true;
             this.btn_Clear.Appearance.Options.UseForeColor = true;
-            this.btn_Clear.Location = new System.Drawing.Point(337, 213);
+            this.btn_Clear.Location = new System.Drawing.Point(337, 209);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(75, 38);
             this.btn_Clear.TabIndex = 11;
             this.btn_Clear.Text = "清  空";
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // panel1
             // 
@@ -255,8 +257,8 @@
             this.panel1.Controls.Add(this.txt_rs);
             this.panel1.Controls.Add(this.txt_zs);
             this.panel1.Controls.Add(this.txt_mptm);
-            this.panel1.Controls.Add(this.simpleButton2);
-            this.panel1.Controls.Add(this.simpleButton1);
+            this.panel1.Controls.Add(this.btn_PreSale);
+            this.panel1.Controls.Add(this.btn_SearchStatus);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label12);
@@ -324,21 +326,23 @@
             // 
             // lue_mplx
             // 
+            this.lue_mplx.Enabled = false;
             this.lue_mplx.Location = new System.Drawing.Point(74, 57);
             this.lue_mplx.Name = "lue_mplx";
             this.lue_mplx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_mplx.Size = new System.Drawing.Size(209, 20);
+            this.lue_mplx.Size = new System.Drawing.Size(222, 20);
             this.lue_mplx.TabIndex = 3;
             // 
             // txt_rs
             // 
-            this.txt_rs.Location = new System.Drawing.Point(217, 31);
+            this.txt_rs.Location = new System.Drawing.Point(224, 31);
             this.txt_rs.Name = "txt_rs";
             this.txt_rs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txt_rs.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txt_rs.Properties.MaxLength = 5;
-            this.txt_rs.Size = new System.Drawing.Size(66, 20);
+            this.txt_rs.Properties.ReadOnly = true;
+            this.txt_rs.Size = new System.Drawing.Size(72, 20);
             this.txt_rs.TabIndex = 2;
             // 
             // txt_zs
@@ -348,8 +352,9 @@
             this.txt_zs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txt_zs.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txt_zs.Properties.MaxLength = 5;
-            this.txt_zs.Size = new System.Drawing.Size(66, 20);
+            this.txt_zs.Size = new System.Drawing.Size(73, 20);
             this.txt_zs.TabIndex = 2;
+            this.txt_zs.EditValueChanged += new System.EventHandler(this.txt_zs_EditValueChanged);
             // 
             // txt_mptm
             // 
@@ -361,29 +366,31 @@
             this.txt_mptm.Size = new System.Drawing.Size(119, 22);
             this.txt_mptm.TabIndex = 2;
             // 
-            // simpleButton2
+            // btn_PreSale
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.Location = new System.Drawing.Point(362, 48);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 29);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "停止预售";
+            this.btn_PreSale.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_PreSale.Appearance.ForeColor = System.Drawing.Color.Gray;
+            this.btn_PreSale.Appearance.Options.UseFont = true;
+            this.btn_PreSale.Appearance.Options.UseForeColor = true;
+            this.btn_PreSale.Location = new System.Drawing.Point(362, 48);
+            this.btn_PreSale.Name = "btn_PreSale";
+            this.btn_PreSale.Size = new System.Drawing.Size(75, 29);
+            this.btn_PreSale.TabIndex = 1;
+            this.btn_PreSale.Text = "停止预售";
+            this.btn_PreSale.Click += new System.EventHandler(this.btn_PreSale_Click);
             // 
-            // simpleButton1
+            // btn_SearchStatus
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Olive;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(362, 3);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 29);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "状态查询";
+            this.btn_SearchStatus.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_SearchStatus.Appearance.ForeColor = System.Drawing.Color.Olive;
+            this.btn_SearchStatus.Appearance.Options.UseFont = true;
+            this.btn_SearchStatus.Appearance.Options.UseForeColor = true;
+            this.btn_SearchStatus.Location = new System.Drawing.Point(362, 3);
+            this.btn_SearchStatus.Name = "btn_SearchStatus";
+            this.btn_SearchStatus.Size = new System.Drawing.Size(75, 29);
+            this.btn_SearchStatus.TabIndex = 1;
+            this.btn_SearchStatus.Text = "状态查询";
+            this.btn_SearchStatus.Click += new System.EventHandler(this.btn_SearchStatus_Click);
             // 
             // label13
             // 
@@ -423,7 +430,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(146, 34);
+            this.label7.Location = new System.Drawing.Point(153, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 14);
             this.label7.TabIndex = 0;
@@ -445,7 +452,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 34);
+            this.label6.Location = new System.Drawing.Point(4, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 14);
             this.label6.TabIndex = 0;
@@ -476,10 +483,10 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lue_zjlx);
             this.panel2.Controls.Add(this.lue_kyd);
             this.panel2.Controls.Add(this.txt_ttmc);
             this.panel2.Controls.Add(this.txt_zjhm);
-            this.panel2.Controls.Add(this.txt_zjlx);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label19);
@@ -511,13 +518,6 @@
             this.txt_zjhm.Name = "txt_zjhm";
             this.txt_zjhm.Size = new System.Drawing.Size(162, 20);
             this.txt_zjhm.TabIndex = 2;
-            // 
-            // txt_zjlx
-            // 
-            this.txt_zjlx.Location = new System.Drawing.Point(74, 5);
-            this.txt_zjlx.Name = "txt_zjlx";
-            this.txt_zjlx.Size = new System.Drawing.Size(119, 20);
-            this.txt_zjlx.TabIndex = 2;
             // 
             // label15
             // 
@@ -563,72 +563,74 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "证件类型 :";
             // 
-            // simpleButton3
+            // btn_Add
             // 
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Olive;
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.Location = new System.Drawing.Point(51, 3);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(75, 38);
-            this.simpleButton3.TabIndex = 1;
-            this.simpleButton3.Text = "添  加";
+            this.btn_Add.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_Add.Appearance.ForeColor = System.Drawing.Color.Olive;
+            this.btn_Add.Appearance.Options.UseFont = true;
+            this.btn_Add.Appearance.Options.UseForeColor = true;
+            this.btn_Add.Location = new System.Drawing.Point(51, 3);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(75, 38);
+            this.btn_Add.TabIndex = 1;
+            this.btn_Add.Text = "添  加";
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // simpleButton4
+            // btn_ReWrite
             // 
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Olive;
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.Location = new System.Drawing.Point(337, 3);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(75, 38);
-            this.simpleButton4.TabIndex = 1;
-            this.simpleButton4.Text = "重  填";
+            this.btn_ReWrite.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_ReWrite.Appearance.ForeColor = System.Drawing.Color.Olive;
+            this.btn_ReWrite.Appearance.Options.UseFont = true;
+            this.btn_ReWrite.Appearance.Options.UseForeColor = true;
+            this.btn_ReWrite.Location = new System.Drawing.Point(337, 3);
+            this.btn_ReWrite.Name = "btn_ReWrite";
+            this.btn_ReWrite.Size = new System.Drawing.Size(75, 38);
+            this.btn_ReWrite.TabIndex = 1;
+            this.btn_ReWrite.Text = "重  填";
+            this.btn_ReWrite.Click += new System.EventHandler(this.btn_ReWrite_Click);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.txt_ssk);
-            this.panel3.Controls.Add(this.gridControl1);
-            this.panel3.Controls.Add(this.simpleButton3);
+            this.panel3.Controls.Add(this.gc_PreSaleList);
+            this.panel3.Controls.Add(this.btn_Add);
             this.panel3.Controls.Add(this.btn_Sale);
             this.panel3.Controls.Add(this.l_zl);
             this.panel3.Controls.Add(this.btn_Clear);
             this.panel3.Controls.Add(this.l_skhj);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.simpleButton4);
+            this.panel3.Controls.Add(this.btn_ReWrite);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(9, 254);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(456, 255);
+            this.panel3.Size = new System.Drawing.Size(456, 250);
             this.panel3.TabIndex = 17;
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.dateEdit1);
+            this.panel4.Controls.Add(this.de_Trade);
             this.panel4.Controls.Add(this.label20);
-            this.panel4.Controls.Add(this.gridControl2);
-            this.panel4.Controls.Add(this.btn_sale_search);
+            this.panel4.Controls.Add(this.gc_TradeList);
+            this.panel4.Controls.Add(this.btn_SearchHistory);
             this.panel4.Location = new System.Drawing.Point(464, 39);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(301, 470);
+            this.panel4.Size = new System.Drawing.Size(293, 465);
             this.panel4.TabIndex = 18;
             // 
-            // dateEdit1
+            // de_Trade
             // 
-            this.dateEdit1.EditValue = new System.DateTime(2015, 1, 7, 0, 45, 3, 0);
-            this.dateEdit1.Location = new System.Drawing.Point(79, 7);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_Trade.EditValue = new System.DateTime(2015, 1, 7, 0, 45, 3, 0);
+            this.de_Trade.Location = new System.Drawing.Point(79, 7);
+            this.de_Trade.Name = "de_Trade";
+            this.de_Trade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_Trade.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(138, 20);
-            this.dateEdit1.TabIndex = 11;
+            this.de_Trade.Size = new System.Drawing.Size(127, 20);
+            this.de_Trade.TabIndex = 11;
             // 
             // label20
             // 
@@ -641,21 +643,21 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "交易日期 :";
             // 
-            // gridControl2
+            // gc_TradeList
             // 
-            this.gridControl2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl2.Location = new System.Drawing.Point(4, 31);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(294, 435);
-            this.gridControl2.TabIndex = 10;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gc_TradeList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gc_TradeList.Location = new System.Drawing.Point(4, 31);
+            this.gc_TradeList.MainView = this.gridView2;
+            this.gc_TradeList.Name = "gc_TradeList";
+            this.gc_TradeList.Size = new System.Drawing.Size(283, 430);
+            this.gc_TradeList.TabIndex = 10;
+            this.gc_TradeList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
             // 
             this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.GridControl = this.gc_TradeList;
             this.gridView2.IndicatorWidth = 40;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
@@ -666,17 +668,27 @@
             this.gridView2.OptionsView.ColumnAutoWidth = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
-            // btn_sale_search
+            // btn_SearchHistory
             // 
-            this.btn_sale_search.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_sale_search.Appearance.ForeColor = System.Drawing.Color.Olive;
-            this.btn_sale_search.Appearance.Options.UseFont = true;
-            this.btn_sale_search.Appearance.Options.UseForeColor = true;
-            this.btn_sale_search.Location = new System.Drawing.Point(223, 6);
-            this.btn_sale_search.Name = "btn_sale_search";
-            this.btn_sale_search.Size = new System.Drawing.Size(75, 23);
-            this.btn_sale_search.TabIndex = 1;
-            this.btn_sale_search.Text = "查  询";
+            this.btn_SearchHistory.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_SearchHistory.Appearance.ForeColor = System.Drawing.Color.Olive;
+            this.btn_SearchHistory.Appearance.Options.UseFont = true;
+            this.btn_SearchHistory.Appearance.Options.UseForeColor = true;
+            this.btn_SearchHistory.Location = new System.Drawing.Point(212, 6);
+            this.btn_SearchHistory.Name = "btn_SearchHistory";
+            this.btn_SearchHistory.Size = new System.Drawing.Size(75, 23);
+            this.btn_SearchHistory.TabIndex = 1;
+            this.btn_SearchHistory.Text = "查  询";
+            this.btn_SearchHistory.Click += new System.EventHandler(this.btn_SearchHistory_Click);
+            // 
+            // lue_zjlx
+            // 
+            this.lue_zjlx.Location = new System.Drawing.Point(74, 6);
+            this.lue_zjlx.Name = "lue_zjlx";
+            this.lue_zjlx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_zjlx.Size = new System.Drawing.Size(119, 20);
+            this.lue_zjlx.TabIndex = 4;
             // 
             // Frm_Sale
             // 
@@ -694,7 +706,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Frm_Sale";
             this.Size = new System.Drawing.Size(772, 515);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_PreSaleList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ssk.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -708,15 +720,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.lue_kyd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ttmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_zjhm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_zjlx.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Trade.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Trade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_TradeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_zjlx.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,7 +736,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gc_PreSaleList;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label l_jyh;
@@ -745,19 +757,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btn_PreSale;
+        private DevExpress.XtraEditors.SimpleButton btn_SearchStatus;
         private DevExpress.XtraEditors.TextEdit txt_rs;
         private DevExpress.XtraEditors.TextEdit txt_zs;
         private DevExpress.XtraEditors.TextEdit txt_mptm;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.TextEdit txt_ttmc;
-        private DevExpress.XtraEditors.TextEdit txt_zjlx;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label21;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton btn_Add;
+        private DevExpress.XtraEditors.SimpleButton btn_ReWrite;
         private DevExpress.XtraEditors.TextEdit txt_zjhm;
         private System.Windows.Forms.Label label14;
         private DevExpress.XtraEditors.LookUpEdit lue_mplx;
@@ -770,9 +781,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label20;
-        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.GridControl gc_TradeList;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.SimpleButton btn_sale_search;
+        private DevExpress.XtraEditors.DateEdit de_Trade;
+        private DevExpress.XtraEditors.SimpleButton btn_SearchHistory;
+        private DevExpress.XtraEditors.LookUpEdit lue_zjlx;
     }
 }

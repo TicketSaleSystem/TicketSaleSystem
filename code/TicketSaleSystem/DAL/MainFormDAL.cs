@@ -56,7 +56,7 @@ namespace TSS_DAL
 	                            (CONVERT(INT,SUBSTRING(t.DICT_ID,2,4)) BETWEEN 200 AND 499)
                             AND
 	                            CONVERT(INT,SUBSTRING(t.DICT_ID,2,4)) IN ({0})
-                            ORDER BY T.ID", keys);
+                            ORDER BY t.DICT_ID", keys);
                     dt = dbHelper.ExecuteQuery(sqlStr);
                 }
             }
